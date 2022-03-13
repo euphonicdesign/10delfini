@@ -688,7 +688,7 @@ textarea.form-control {
 .work-section {
   padding-top: 90px!important;
   padding-bottom: 90px!important;
-  min-height: 850px;
+  min-height: 1200px;
   background-color: #6699cc;
 }
 
@@ -1126,4 +1126,9 @@ figure.effect-julia:hover p {
 
 .cul-alba {
   color: white;
+}
+
+.margin-paragraf-lucru {
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
