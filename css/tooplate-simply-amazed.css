@@ -199,7 +199,7 @@ textarea.form-control {
 /* <<< Mobile Menu button >>> */
 .navbar-button {
   width: 50px;
-  height: 47px;  
+  height: 47px;
   padding: 0;
   margin: 0;
   outline: 0;
@@ -588,7 +588,7 @@ textarea.form-control {
   }
 
   .navbar .navbar-nav > .nav-item { padding-left: 30px; }
-  .nav-link .fa-2x { font-size: 1.2em; }  
+  .nav-link .fa-2x { font-size: 1.2em; }
 }
 
 /* <<< content-box >>> */
@@ -619,7 +619,7 @@ textarea.form-control {
 
 .bg-blue-transparent { background-color: rgb(102 153 204 / 0.8); }
 
-.banner-section .logo-fa {  
+.banner-section .logo-fa {
   color: #fff;
   max-width: 400px;
   margin-left: 5px;
@@ -1059,7 +1059,7 @@ figure.effect-julia:hover p {
   /* <<< Dummy Side >>> */
 }
 
-@media (min-height: 600px){  
+@media (min-height: 600px){
   .contact-section { position: relative; }
 
   .footer {
@@ -1122,4 +1122,8 @@ figure.effect-julia:hover p {
   .contact-form, .contact-details { width: 100%; }
 
   .contact-details { margin-bottom: 50px!important; }
+}
+
+p.our-work {
+  color: white;
 }
