@@ -1133,3 +1133,8 @@ figure.effect-julia:hover p {
   margin-top: 20px;
   margin-bottom: 40px;
 }
+
+.padding10{
+  padding-top: 10px;
+  padding-right: 10px;
+}
