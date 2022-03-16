@@ -1129,6 +1129,14 @@ figure.effect-julia:hover p {
   color: white;
 }
 
+a.cul-alba{
+  text-decoration: none;
+}
+
+.cul-alba a:hover {
+  color: #99ccff;
+}
+
 .margin-paragraf-lucru {
   margin-top: 20px;
   margin-bottom: 40px;
