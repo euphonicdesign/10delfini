@@ -42,3 +42,18 @@ h1 {
 h2 {
   font-size: 2em;
 }
+
+a {
+  color: gray;
+}
+
+a:hover {
+  color: orange;
+}
+
+/*
+a:visited {
+  color: blue;
+  text-decoration: none;
+}
+*/
