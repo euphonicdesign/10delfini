@@ -69,3 +69,7 @@ a:visited {
 ol.special-list {
   list-style-type: square;
 }
+
+div#special-div p {
+  font-size: 2em;
+}
