@@ -27,7 +27,7 @@ p.indented {
   color: #333;
 }
 
-p, ul, ol {
+p, ul, ol, table {
   font-family: Verdana, Arial, sans-serif;
   text-align: justify;
   line-height: 1.3em;
@@ -72,4 +72,21 @@ ol.special-list {
 
 div#special-div p {
   font-size: 2em;
+}
+
+td {
+  padding: .2em;
+}
+
+p.spaced {
+  margin-top: 3em;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: .2em;
 }
