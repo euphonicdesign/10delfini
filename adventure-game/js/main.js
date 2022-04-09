@@ -32,8 +32,8 @@ let dy = -2;
 var ballRadius = 10;
 let ballColor = "rgba(0, 0, 255, 1.0)";
 
-var paddleHeight = 10;
-var paddleWidth = 30;
+var paddleHeight = 20;
+var paddleWidth = 40;
 var entriesWidth = 60;
 var entriesHeight = 20;
 var paddleX = (canvas.width-paddleWidth) / 2;
@@ -171,8 +171,39 @@ var cadre = [
     //drive trees
     { nr_cadru: 11,
       activat: false,
+      pozitieIntrareX: 250,
+      pozitieIntrareY: 250,
       entries:[
         {nr_cadru: 10, x:200, y:350},
+      ],
+    },
+    //city intersection
+    { nr_cadru: 12,
+      activat: false,
+      pozitieIntrareX: 250,
+      pozitieIntrareY: 250,
+      entries:[
+        {nr_cadru: 9, x:20, y:250},
+        {nr_cadru: 13, x:460, y:250},
+        {nr_cadru: 14, x:200, y:30},
+      ],
+    },
+    //east city
+    { nr_cadru: 13,
+      activat: false,
+      pozitieIntrareX: 250,
+      pozitieIntrareY: 250,
+      entries:[
+        {nr_cadru: 12, x:20, y:250},
+      ],
+    },
+    //port
+    { nr_cadru: 14,
+      activat: false,
+      pozitieIntrareX: 250,
+      pozitieIntrareY: 250,
+      entries:[
+        {nr_cadru: 12, x:250, y:350},
       ],
     },
 ];
@@ -264,21 +295,6 @@ function drawPaddle() {
 }
 
 function drawCadreEntries() {
-
-  /*
-  var cadre = [
-    [ //cadru 0
-      { nr_cadru: 0,
-        activat: false,
-        entries:[
-          {nr_cadru: 1, x:10, y:200},
-          {nr_cadru: 2, x:240, y:340},
-          {nr_cadru: 3, x:350, y:10},
-        ],
-      },
-    ],
-*/
-
     for (let entry of cadre[cadru_curent].entries) {
         ctx.beginPath();
         ctx.rect(entry.x, entry.y, entriesWidth, entriesHeight);
@@ -309,26 +325,6 @@ function drawLives() {
 
 function collisionDetection() {
 
-  /*
-  var cadre = [
-    [ //cadru 0
-      { nr_cadru: 0,
-        activat: false,
-        x_intrare:10,
-        y_intrare:200,
-        entries:[
-          {nr_cadru: 1, x:10, y:200},
-          {nr_cadru: 2, x:240, y:340},
-          {nr_cadru: 3, x:350, y:10},
-        ],
-      },
-    ],
-*/
-
-    //console.log("Entries cadru curent: " + cadru_curent);
-    //for (let cadruEntry = 0; cadruEntry< cadre[cadru_curent][0].entries.length; cadruEntry++){
-       //console.log(cadre[cadru_curent][0].entries[cadruEntry].nr_cadru);
-    //}
     let hit = false;
     let intrare_scena = true;
     for (let entry of cadre[cadru_curent].entries) {
@@ -359,22 +355,6 @@ function collisionDetection() {
     if(!hit && cadre[cadru_curent].activat) {
         cadre[cadru_curent].activat = false;
     }
-
-/*
-    for (let cadru of cadre[cadru_curent]) {
-
-        if(Math.abs(paddleX - cadru.x) < paddleWidth && Math.abs(paddleY - cadru.y) < paddleHeight){
-
-          let nrCadru = cadre[cadru_curent].indexOf(cadru);
-          console.log("hit cadru: " + nrCadru);
-
-          if(cadru_curent != nrCadru) {
-             cadru_curent = nrCadru;
-             console.log("cadru_curent: " + cadru_curent);
-             salvareCadru();
-          }
-        }
-    }*/
 }
 
 //CONTROLS
