@@ -66,10 +66,49 @@ var lives = 3;
 var cadru_curent = 1;
 
 var cadre = [
-  {x:10, y:200, visitat:false},
-  {x:240, y:340, visitat:false},
-  {x:250, y:210, visitat:false},
-  {x:350, y:10, visitat:false},
+    //cadru 0
+    { nr_cadru: 0,
+      activat: false,
+      x_intrare:10,
+      y_intrare:200,
+      entries:[
+        {nr_cadru: 1, x:10, y:200, visitat:false},
+        {nr_cadru: 2, x:240, y:340, visitat:false},
+        {nr_cadru: 3, x:350, y:10, visitat:false},
+        {nr_cadru: 4, x:450, y:110, visitat:false},
+      ],
+    },
+    { nr_cadru: 1,
+      activat: false,
+      x_intrare:240,
+      y_intrare:340,
+      entries:[
+        {nr_cadru: 2, x:240, y:340, visitat:false},
+        {nr_cadru: 4, x:450, y:110, visitat:false},
+      ],
+    },
+    { nr_cadru: 2,
+      activat: false,
+      x_intrare:10,
+      y_intrare:200,
+      entries:[
+        {nr_cadru: 1, x:10, y:200, visitat:false},
+        {nr_cadru: 2, x:240, y:340, visitat:false},
+        {nr_cadru: 3, x:350, y:10, visitat:false},
+        {nr_cadru: 4, x:450, y:110, visitat:false},
+      ],
+    },
+    { nr_cadru: 0,
+      activat: false,
+      x_intrare:10,
+      y_intrare:200,
+      entries:[
+        {nr_cadru: 1, x:10, y:200, visitat:false},
+        {nr_cadru: 2, x:240, y:340, visitat:false},
+        {nr_cadru: 3, x:350, y:10, visitat:false},
+        {nr_cadru: 4, x:450, y:110, visitat:false},
+      ],
+    },
 ];
 
 var imgCadru1 = new Image();
@@ -109,33 +148,14 @@ function initializare() {
     }
 }
 
-
-function drawPaddle() {
-    ctx.beginPath();
-    ctx.rect(paddleX, paddleY, paddleWidth, paddleHeight);
-    ctx.fillStyle = "#0095DD";
-    ctx.fill();
-    ctx.closePath();
-}
-
-function drawCadre() {
-    for (let cadru of cadre) {
-        ctx.beginPath();
-        ctx.rect(cadru.x, cadru.y, paddleWidth/2, paddleHeight*2);
-        ctx.fillStyle = "#12AADD";
-        ctx.fill();
-        ctx.closePath();
-    }
-}
-
 function draw() {
     // drawing code
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    drawCadru();
+    drawCadruImg();
     drawPaddle();
     drawLives();
-    drawCadre();
+    drawCadreEntries();
     collisionDetection();
 
     //Follow mouse on x
@@ -153,7 +173,7 @@ function draw() {
         }
     }
 
-    //Follow mous on y
+    //Follow mouse on y
     if(relativeY - paddleY > paddleHeight / 2 + paddle_dy){
         paddleY += paddle_dy;
         if (paddleY + paddleHeight > canvas.height){
@@ -167,70 +187,62 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
-//CONTROLS
-//document.addEventListener("keydown", keyDownHandler, false);
-//document.addEventListener("keyup", keyUpHandler, false);
-document.addEventListener("click", mouseMoveHandler, false);
-
-function mouseMoveHandler(e) {
-    relativeX = e.clientX - canvas.offsetLeft;
-    relativeY = e.clientY - canvas.offsetTop;
+function drawPaddle() {
+    ctx.beginPath();
+    ctx.rect(paddleX, paddleY, paddleWidth, paddleHeight);
+    ctx.fillStyle = "#0095DD";
+    ctx.fill();
+    ctx.closePath();
 }
 
-/*
-function keyDownHandler(e) {
-    if(e.key == "Right" || e.key == "ArrowRight") {
-        rightPressed = true;
-    }
-    else if(e.key == "Left" || e.key == "ArrowLeft") {
-        leftPressed = true;
-    }
-}
+function drawCadreEntries() {
 
-function keyUpHandler(e) {
-    if(e.key == "Right" || e.key == "ArrowRight") {
-        rightPressed = false;
-    }
-    else if(e.key == "Left" || e.key == "ArrowLeft") {
-        leftPressed = false;
-    }
-}*/
+  /*
+  var cadre = [
+    [ //cadru 0
+      { nr_cadru: 0,
+        activat: false,
+        x_intrare:10,
+        y_intrare:200,
+        entries:[
+          {nr_cadru: 1, x:10, y:200, visitat:false},
+          {nr_cadru: 2, x:240, y:340, visitat:false},
+          {nr_cadru: 3, x:350, y:10, visitat:false},
+        ],
+      },
+    ],
+*/
 
-function collisionDetection() {
-    for (let cadru of cadre) {
-        let nrCadru = cadre.indexOf(cadru) + 2;
-        if(Math.abs(paddleX - cadru.x) < paddleWidth && Math.abs(paddleY - cadru.y) < paddleHeight){
-          //console.log("hit cadru: " + nrCadru);
+    for (let entry of cadre[cadru_curent].entries) {
+        ctx.beginPath();
+        ctx.rect(entry.x, entry.y, paddleWidth/2, paddleHeight*2);
+        ctx.fillStyle = "#12AADD";
+        ctx.fill();
+        ctx.closePath();
 
-          if(cadru_curent != nrCadru) {
-             cadru_curent = nrCadru;
-             console.log("cadru_curent: " + cadru_curent);
-             salvareCadru();
-          }
-        }
-
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "green";
+        ctx.fillText("Cadru: " + entry.nr_cadru, entry.x, entry.y);
     }
 }
 
-function drawCadru() {
-
+function drawCadruImg() {
     //draw cadru
-    if(cadru_curent === 1){
+    if(cadru_curent === 0){
         ctx.drawImage(imgCadru1, 0, 0);
     }
-    else if(cadru_curent === 2){
+    else if(cadru_curent === 1){
         ctx.drawImage(imgCadru2, 0, 0);
     }
-    else if(cadru_curent === 3){
+    else if(cadru_curent === 2){
         ctx.drawImage(imgCadru3, 0, 0);
     }
-    else if(cadru_curent === 4){
+    else if(cadru_curent === 3){
         ctx.drawImage(imgCadru4, 0, 0);
     }
-    else if(cadru_curent === 5){
-        ctx.drawImage(imgCadru5, 0, 0);
+    else {
+        ctx.drawImage(imgCadru4, 0, 0);
     }
-
 
     ctx.font = "16px Arial";
     ctx.fillStyle = "#0095DD";
@@ -243,8 +255,73 @@ function drawLives() {
     ctx.fillText("Lives: " + lives, canvas.width-65, 20);
 }
 
+function collisionDetection() {
 
+  /*
+  var cadre = [
+    [ //cadru 0
+      { nr_cadru: 0,
+        activat: false,
+        x_intrare:10,
+        y_intrare:200,
+        entries:[
+          {nr_cadru: 1, x:10, y:200, visitat:false},
+          {nr_cadru: 2, x:240, y:340, visitat:false},
+          {nr_cadru: 3, x:350, y:10, visitat:false},
+        ],
+      },
+    ],
+*/
 
+    //console.log("Entries cadru curent: " + cadru_curent);
+    //for (let cadruEntry = 0; cadruEntry< cadre[cadru_curent][0].entries.length; cadruEntry++){
+       //console.log(cadre[cadru_curent][0].entries[cadruEntry].nr_cadru);
+    //}
+    let hit = false;
+    for (let entry of cadre[cadru_curent].entries) {
+        //console.log(entry.nr_cadru);
+        //verifica daca loveste intrarea si daca cadrul curent este inactiv => il face activ pentru a nu reintra din nou
+        //altfel il face inactiv
+        if(Math.abs(paddleX - entry.x) < paddleWidth && Math.abs(paddleY - entry.y) < paddleHeight){
+            hit = true;
+            if(!cadre[cadru_curent].activat){
+                console.log("hit and non-activat")
+                cadre[cadru_curent].activat = true;
+
+                cadru_curent = entry.nr_cadru;
+            }
+        }
+    }
+    if(!hit && cadre[cadru_curent].activat) {
+        cadre[cadru_curent].activat = false;
+    }
+
+/*
+    for (let cadru of cadre[cadru_curent]) {
+
+        if(Math.abs(paddleX - cadru.x) < paddleWidth && Math.abs(paddleY - cadru.y) < paddleHeight){
+
+          let nrCadru = cadre[cadru_curent].indexOf(cadru);
+          console.log("hit cadru: " + nrCadru);
+
+          if(cadru_curent != nrCadru) {
+             cadru_curent = nrCadru;
+             console.log("cadru_curent: " + cadru_curent);
+             salvareCadru();
+          }
+        }
+    }*/
+}
+
+//CONTROLS
+document.addEventListener("click", mouseMoveHandler, false);
+
+function mouseMoveHandler(e) {
+    relativeX = e.clientX - canvas.offsetLeft;
+    relativeY = e.clientY - canvas.offsetTop;
+}
+
+//SALVARE STARE
 function salvareCadru() {
   console.log("se salveaza cadrul cu numarul: " + cadru_curent);
   localStorage.setItem('cadru', cadru_curent);
@@ -260,7 +337,7 @@ function setareCadru() {
   }
 }
 
-
+//START GAME
 //var interval = setInterval(draw, 10); //10ms
 initializare();
 draw();
