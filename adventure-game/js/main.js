@@ -24,11 +24,6 @@ ctx.stroke();
 ctx.closePath();
 */
 
-let x = canvas.width/2;
-let y = canvas.height-30;
-let dx = 2;
-let dy = -2;
-
 var ballRadius = 10;
 let ballColor = "rgba(0, 0, 255, 1.0)";
 
@@ -36,8 +31,8 @@ var paddleHeight = 20;
 var paddleWidth = 40;
 var entriesWidth = 60;
 var entriesHeight = 20;
-var paddleX = (canvas.width-paddleWidth) / 2;
-var paddleY = canvas.height - paddleHeight;
+var paddleX = 250;//(canvas.width-paddleWidth) / 2;
+var paddleY = 250;//canvas.height - paddleHeight;
 var relativeX = paddleX; //mouse click position
 var relativeY = paddleY;
 var paddle_dx = 3;
@@ -67,173 +62,29 @@ var lives = 3;
 
 var cadru_curent = 0;
 
-var cadre = [
-    //starting_place
-    { nr_cadru: 0,
-      activat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
-      entries:[
-        {nr_cadru: 1, x:10, y:200},
-        {nr_cadru: 2, x:240, y:340},
-        {nr_cadru: 3, x:300, y:10},
-      ],
-    },//library
-    { nr_cadru: 1,
-      activat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
-      entries:[
-        {nr_cadru: 0, x:450, y:150},
-      ],
-    },//house
-    { nr_cadru: 2,
-      activat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
-      entries:[
-        {nr_cadru: 0, x:10, y:200},
-      ],
-    },//bridge end
-    { nr_cadru: 3,
-      activat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
-      entries:[
-        {nr_cadru: 0, x:200, y:350},//starting_place
-        {nr_cadru: 4, x:200, y:20},
-        {nr_cadru: 9, x:450, y:210},
-      ],
-    },//alley split
-    { nr_cadru: 4,
-      activat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
-      entries:[
-        {nr_cadru: 3, x:150, y:350},//bridge_end
-        {nr_cadru: 5, x:450, y:200},
-        {nr_cadru: 6, x:280, y:20},//sunny_beach
-        {nr_cadru: 7, x:50, y:20},
-      ],
-    },//summer games
-    { nr_cadru: 5,
-      activat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
-      entries:[
-        {nr_cadru: 4, x:10, y:300},
-      ],
-    },//sunny_beach
-    { nr_cadru: 6,
-      activat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
-      entries:[
-        {nr_cadru: 4, x:210, y:300},
-      ],
-    },
-    { nr_cadru: 7,//dam
-      activat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
-      entries:[
-        {nr_cadru: 4, x:210, y:300},
-        {nr_cadru: 8, x:210, y:30},
-      ],
-    },
-    { nr_cadru: 8,//lighthouse
-      activat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
-      entries:[
-        {nr_cadru: 7, x:210, y:300},
-      ],
-    },//drive stop
-    { nr_cadru: 9,
-      activat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
-      entries:[
-        {nr_cadru: 0, x:10, y:150},
-        {nr_cadru: 10, x:210, y:10},
-        {nr_cadru: 12, x:390, y:150},
-      ],
-    },//drive trees
-    { nr_cadru: 10,
-      activat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
-      entries:[
-        {nr_cadru: 9, x:200, y:350},
-        {nr_cadru: 11, x:210, y:20},
-      ],
-    },
-    //drive trees
-    { nr_cadru: 11,
-      activat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
-      entries:[
-        {nr_cadru: 10, x:200, y:350},
-      ],
-    },
-    //city intersection
-    { nr_cadru: 12,
-      activat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
-      entries:[
-        {nr_cadru: 9, x:20, y:250},
-        {nr_cadru: 13, x:460, y:250},
-        {nr_cadru: 14, x:200, y:30},
-      ],
-    },
-    //east city
-    { nr_cadru: 13,
-      activat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
-      entries:[
-        {nr_cadru: 12, x:20, y:250},
-      ],
-    },
-    //port
-    { nr_cadru: 14,
-      activat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
-      entries:[
-        {nr_cadru: 12, x:250, y:350},
-      ],
-    },
-];
-
-let image_strings = [
-    "./img/starting_place.jpg", //0
-    "./img/library.jpg",//1
-    "./img/house.jpg",//2
-    "./img/bridge_end.jpg",//3
-    "./img/alley_split.jpg",//4
-    "./img/summer_games.jpg",//5
-    "./img/sunny_beach.jpg",//6
-    "./img/dam.jpg",//7
-    "./img/lighthouse.jpg",//8
-    "./img/drive_stop.jpg",//9
-    "./img/trees.jpg",//10
-    "./img/palm_beach.jpg",//11
-    "./img/city_intersection.jpg",//12
-    "./img/east_city.jpg",//13
-    "./img/port.jpg",//14
-];
-
 let imaginiCadru = [];
 for (let i=0; i<image_strings.length; i++){
     imaginiCadru[i] = new Image();
     imaginiCadru[i].src = image_strings[i];
 }
 
+var buton = document.getElementById("resetButton");
+buton.addEventListener("click", resetare);
+
+let desenareTextActiune = false;
+let actiuneSelectata = "";
+
+let cadruWidth = 520;
+let cadruHeight = 370;
+
+function resetare(){
+    localStorage.clear();
+    location.reload();
+}
+
 function initializare() {
     setareCadru();
+    setareStare();
 
     for (let i=0; i<imaginiCadru.length; i++){
         imaginiCadru[i].addEventListener("load", loadImage, false);
@@ -252,7 +103,10 @@ function draw() {
     drawPaddle();
     drawLives();
     drawCadreEntries();
+    drawTextCadru();
+    drawActiuniInventoryNpcs();
     collisionDetection();
+    detectareActiuneSelectata();
     followMouseMovement();
 
     requestAnimationFrame(draw);
@@ -263,8 +117,8 @@ function followMouseMovement(){
   //console.log(relativeX);
   if(relativeX - paddleX > paddleWidth / 2 + paddle_dx){
       paddleX += paddle_dx;
-      if (paddleX + paddleWidth > canvas.width){
-          paddleX = canvas.width - paddleWidth;
+      if (paddleX + paddleWidth > cadruWidth){
+          paddleX = cadruWidth - paddleWidth;
       }
   }
   else if(relativeX - paddleX < paddleWidth / 2 - paddle_dx) {
@@ -277,8 +131,8 @@ function followMouseMovement(){
   //Follow mouse on y
   if(relativeY - paddleY > paddleHeight / 2 + paddle_dy){
       paddleY += paddle_dy;
-      if (paddleY + paddleHeight > canvas.height){
-          paddleY = canvas.height - paddleHeight;
+      if (paddleY + paddleHeight > cadruHeight){
+          paddleY = cadruHeight - paddleHeight;
       }
   }
   else if(relativeY - paddleY < paddleHeight / 2 - paddle_dy) {
@@ -308,6 +162,90 @@ function drawCadreEntries() {
     }
 }
 
+function drawTextCadru() {
+    ctx.font = "18px Times";
+    ctx.fillStyle = "#333";
+    var lineHeight = ctx.measureText("M").width * 1.2;
+    var lines;
+    if(!desenareTextActiune){
+        //afisare text scena - prim - if non-text actiune
+        if(!cadre[cadru_curent].vizitat){
+          lines = cadre[cadru_curent].textPrim.split("\n");
+        }
+        else {
+          lines = cadre[cadru_curent].textSecund.split("\n");
+        }
+        let x = 10;
+        let y = 400;
+        for (var i = 0; i < lines.length; ++i) {
+          ctx.fillText(lines[i].trim(), x, y);
+          y += lineHeight;
+        }
+    }
+    else {
+        //lines = actiuneSelectata;
+        let x = 10;
+        let y = 430;
+        ctx.fillText(actiuneSelectata, x, y - lineHeight);
+        //console.log(actiuneSelectata);
+        for (let actiune of cadre[cadru_curent].actiuni){
+            //console.log(actiune.nume);
+            if(actiune.nume === actiuneSelectata){
+                //console.log("bingo");
+                lines = actiune.text.split("\n");
+                for (var i = 0; i < lines.length; ++i) {
+                  ctx.fillText(lines[i].trim(), x, y);
+                  y += lineHeight;
+                }
+            }
+        }
+    }
+
+}
+
+function drawActiuniInventoryNpcs() {
+    ctx.font = "18px Times";
+
+    var lineHeight = ctx.measureText("M").width * 1.2;
+    var lines;
+
+    //draw actiuni cadru
+    x = 550;
+    y = 100;
+    ctx.fillStyle = "#333";
+    ctx.fillText("Actions:", x, y-lineHeight);
+    ctx.fillStyle = "green";
+    for (let actiune of cadre[cadru_curent].actiuni) {
+        //console.log(actiune.nume);
+        ctx.fillText(actiune.nume, x, y);
+        y += lineHeight;
+    }
+
+    //draw inventory
+    x = 650;
+    y = 100;
+    ctx.fillStyle = "#333";
+    ctx.fillText("Inventory:", x, y-lineHeight);
+    ctx.fillStyle = "orange";
+    for (let item of npcs["player"].inventory){
+      //console.log(item);
+      ctx.fillText(item, x, y);
+      y += lineHeight;
+    }
+
+    //draw npcs
+    x = 550;
+    y = 300;
+    ctx.fillStyle = "#333";
+    ctx.fillText("npcs:", x, y-lineHeight);
+    ctx.fillStyle = "blue";
+    for (let npc of Object.keys(npcs)){
+      //console.log(item);
+      ctx.fillText(npc, x, y);
+      y += lineHeight;
+    }
+}
+
 function drawCadruImg() {
     //draw cadru
     ctx.drawImage(imaginiCadru[cadru_curent], 0, 0);
@@ -334,12 +272,15 @@ function collisionDetection() {
         if(Math.abs(paddleX - entry.x) < paddleWidth && Math.abs(paddleY - entry.y) < paddleHeight){
             hit = true;
             if(!cadre[cadru_curent].activat){
-                console.log("hit and non-activat")
+                //console.log("hit and non-activat")
                 cadre[cadru_curent].activat = true;
 
                 cadru_curent = entry.nr_cadru;
-                console.log("cadru_curent: " + cadru_curent);
+                //console.log("cadru_curent: " + cadru_curent);
                 salvareCadru();
+                cadre[cadru_curent].vizitat = true;
+                salvareStare();
+
                 //unde apare cursorul pe ecran dupa ce s-a schimbat cadrul
                 if(intrare_scena){
                     paddleX = 250; //entry.pozitieIntrareX;
@@ -347,6 +288,7 @@ function collisionDetection() {
                     intrare_scena = false;
                     relativeX = paddleX;
                     relativeY = paddleY;
+                    desenareTextActiune = false;
                 }
 
             }
@@ -355,6 +297,23 @@ function collisionDetection() {
     if(!hit && cadre[cadru_curent].activat) {
         cadre[cadru_curent].activat = false;
     }
+}
+
+function detectareActiuneSelectata() {
+  var actionWidth = 40;
+  var actionHeight = ctx.measureText("M").width * 1.2; //line height
+
+  var xActiuni = 550;
+  var yActiuni = 100;
+
+  for (let actiune of cadre[cadru_curent].actiuni) {
+      if(Math.abs(relativeX - xActiuni) < actionWidth && Math.abs(relativeY + 6 - yActiuni) < actionHeight/2){
+          desenareTextActiune = true;
+          actiuneSelectata = actiune.nume;
+      }
+      //urmatorea actiune e plasata cu un increment mai jos
+      yActiuni += actionHeight;
+  }
 }
 
 //CONTROLS
@@ -367,8 +326,13 @@ function mouseMoveHandler(e) {
 
 //SALVARE STARE
 function salvareCadru() {
-  console.log("se salveaza cadrul cu numarul: " + cadru_curent);
+  //console.log("se salveaza cadrul cu numarul: " + cadru_curent);
   localStorage.setItem('cadru', cadru_curent);
+}
+
+function salvareStare() {
+  //console.log("se salveaza starea: ");
+  localStorage.setItem('stare', JSON.stringify(cadre));
 }
 
 function setareCadru() {
@@ -378,6 +342,16 @@ function setareCadru() {
   } else {
     cadru_curent = parseInt(localStorage.getItem('cadru'));
     console.log("cadru incarcat: " + cadru_curent);
+  }
+}
+
+function setareStare() {
+  if(!localStorage.getItem('stare')) {
+    salvareStare();
+    //console.log("setare NrArie initiala " + nr_arie);
+  } else {
+    cadre = JSON.parse(localStorage.getItem('stare'));
+    console.log("stare incarcata");
   }
 }
 
