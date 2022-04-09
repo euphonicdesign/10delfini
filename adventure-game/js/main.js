@@ -63,7 +63,7 @@ for(var c=0; c<brickColumnCount; c++) {
 var score = 0;
 var lives = 3;
 
-var cadru_curent = 1;
+var cadru_curent = 0;
 
 var cadre = [
     //cadru 0
