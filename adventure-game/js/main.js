@@ -33,7 +33,9 @@ var ballRadius = 10;
 let ballColor = "rgba(0, 0, 255, 1.0)";
 
 var paddleHeight = 10;
-var paddleWidth = 75;
+var paddleWidth = 30;
+var entriesWidth = 60;
+var entriesHeight = 20;
 var paddleX = (canvas.width-paddleWidth) / 2;
 var paddleY = canvas.height - paddleHeight;
 var relativeX = paddleX; //mouse click position
@@ -66,96 +68,148 @@ var lives = 3;
 var cadru_curent = 0;
 
 var cadre = [
-    //cadru 0
+    //starting_place
     { nr_cadru: 0,
       activat: false,
-      x_intrare:10,
-      y_intrare:200,
+      pozitieIntrareX: 250,
+      pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 1, x:10, y:200, visitat:false},
-        {nr_cadru: 2, x:240, y:340, visitat:false},
-        {nr_cadru: 3, x:350, y:10, visitat:false},
-        {nr_cadru: 4, x:450, y:110, visitat:false},
+        {nr_cadru: 1, x:10, y:200},
+        {nr_cadru: 2, x:240, y:340},
+        {nr_cadru: 3, x:300, y:10},
       ],
-    },
+    },//library
     { nr_cadru: 1,
       activat: false,
-      x_intrare:240,
-      y_intrare:340,
+      pozitieIntrareX: 250,
+      pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 2, x:240, y:340, visitat:false},
-        {nr_cadru: 4, x:450, y:110, visitat:false},
+        {nr_cadru: 0, x:450, y:150},
       ],
-    },
+    },//house
     { nr_cadru: 2,
       activat: false,
-      x_intrare:10,
-      y_intrare:200,
+      pozitieIntrareX: 250,
+      pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 1, x:10, y:200, visitat:false},
-        {nr_cadru: 2, x:240, y:340, visitat:false},
-        {nr_cadru: 3, x:350, y:10, visitat:false},
-        {nr_cadru: 4, x:450, y:110, visitat:false},
+        {nr_cadru: 0, x:10, y:200},
       ],
-    },
+    },//bridge end
     { nr_cadru: 3,
       activat: false,
-      x_intrare:10,
-      y_intrare:200,
+      pozitieIntrareX: 250,
+      pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 1, x:10, y:200, visitat:false},
-        {nr_cadru: 2, x:240, y:340, visitat:false},
-        {nr_cadru: 3, x:350, y:10, visitat:false},
-        {nr_cadru: 4, x:450, y:110, visitat:false},
+        {nr_cadru: 0, x:200, y:350},//starting_place
+        {nr_cadru: 4, x:200, y:20},
+        {nr_cadru: 9, x:450, y:210},
       ],
-    },
+    },//alley split
     { nr_cadru: 4,
       activat: false,
-      x_intrare:10,
-      y_intrare:200,
+      pozitieIntrareX: 250,
+      pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 0, x:10, y:200, visitat:false},
-        {nr_cadru: 2, x:240, y:340, visitat:false},
-        {nr_cadru: 3, x:350, y:10, visitat:false},
-        {nr_cadru: 4, x:450, y:110, visitat:false},
+        {nr_cadru: 3, x:150, y:350},//bridge_end
+        {nr_cadru: 5, x:450, y:200},
+        {nr_cadru: 6, x:280, y:20},//sunny_beach
+        {nr_cadru: 7, x:50, y:20},
+      ],
+    },//summer games
+    { nr_cadru: 5,
+      activat: false,
+      pozitieIntrareX: 250,
+      pozitieIntrareY: 250,
+      entries:[
+        {nr_cadru: 4, x:10, y:300},
+      ],
+    },//sunny_beach
+    { nr_cadru: 6,
+      activat: false,
+      pozitieIntrareX: 250,
+      pozitieIntrareY: 250,
+      entries:[
+        {nr_cadru: 4, x:210, y:300},
+      ],
+    },
+    { nr_cadru: 7,//dam
+      activat: false,
+      pozitieIntrareX: 250,
+      pozitieIntrareY: 250,
+      entries:[
+        {nr_cadru: 4, x:210, y:300},
+        {nr_cadru: 8, x:210, y:30},
+      ],
+    },
+    { nr_cadru: 8,//lighthouse
+      activat: false,
+      pozitieIntrareX: 250,
+      pozitieIntrareY: 250,
+      entries:[
+        {nr_cadru: 7, x:210, y:300},
+      ],
+    },//drive stop
+    { nr_cadru: 9,
+      activat: false,
+      pozitieIntrareX: 250,
+      pozitieIntrareY: 250,
+      entries:[
+        {nr_cadru: 0, x:10, y:150},
+        {nr_cadru: 10, x:210, y:10},
+        {nr_cadru: 12, x:390, y:150},
+      ],
+    },//drive trees
+    { nr_cadru: 10,
+      activat: false,
+      pozitieIntrareX: 250,
+      pozitieIntrareY: 250,
+      entries:[
+        {nr_cadru: 9, x:200, y:350},
+        {nr_cadru: 11, x:210, y:20},
+      ],
+    },
+    //drive trees
+    { nr_cadru: 11,
+      activat: false,
+      entries:[
+        {nr_cadru: 10, x:200, y:350},
       ],
     },
 ];
 
-var imgCadru1 = new Image();
-imgCadru1.src = "./img/starting_place.jpg";
-var imgCadru2 = new Image();
-imgCadru2.src = "./img/city_intersection.jpg";
-var imgCadru3 = new Image();
-imgCadru3.src = "./img/dam.jpg";
-var imgCadru4 = new Image();
-imgCadru4.src = "./img/drive_stop.jpg";
-var imgCadru5 = new Image();
-imgCadru5.src = "./img/house.jpg";
+let image_strings = [
+    "./img/starting_place.jpg", //0
+    "./img/library.jpg",//1
+    "./img/house.jpg",//2
+    "./img/bridge_end.jpg",//3
+    "./img/alley_split.jpg",//4
+    "./img/summer_games.jpg",//5
+    "./img/sunny_beach.jpg",//6
+    "./img/dam.jpg",//7
+    "./img/lighthouse.jpg",//8
+    "./img/drive_stop.jpg",//9
+    "./img/trees.jpg",//10
+    "./img/palm_beach.jpg",//11
+    "./img/city_intersection.jpg",//12
+    "./img/east_city.jpg",//13
+    "./img/port.jpg",//14
+];
+
+let imaginiCadru = [];
+for (let i=0; i<image_strings.length; i++){
+    imaginiCadru[i] = new Image();
+    imaginiCadru[i].src = image_strings[i];
+}
 
 function initializare() {
     setareCadru();
 
-    //incarcare imagine
-    imgCadru1.addEventListener("load", loadImage, false);
-    function loadImage(e) {
-        //ctx.drawImage(imgCadru1, 0, 0);
-    }
-    imgCadru2.addEventListener("load", loadImage, false);
-    function loadImage(e) {
-        //ctx.drawImage(imgCadru1, 0, 0);
-    }
-    imgCadru3.addEventListener("load", loadImage, false);
-    function loadImage(e) {
-        //ctx.drawImage(imgCadru1, 0, 0);
-    }
-    imgCadru4.addEventListener("load", loadImage, false);
-    function loadImage(e) {
-        //ctx.drawImage(imgCadru1, 0, 0);
-    }
-    imgCadru5.addEventListener("load", loadImage, false);
-    function loadImage(e) {
-        //ctx.drawImage(imgCadru1, 0, 0);
+    for (let i=0; i<imaginiCadru.length; i++){
+        imaginiCadru[i].addEventListener("load", loadImage, false);
+
+        function loadImage(e) {
+            ctx.drawImage(imaginiCadru[i], 0, 0);
+        }
     }
 }
 
@@ -168,34 +222,37 @@ function draw() {
     drawLives();
     drawCadreEntries();
     collisionDetection();
-
-    //Follow mouse on x
-    //console.log(relativeX);
-    if(relativeX - paddleX > paddleWidth / 2 + paddle_dx){
-        paddleX += paddle_dx;
-        if (paddleX + paddleWidth > canvas.width){
-            paddleX = canvas.width - paddleWidth;
-        }
-    }
-    else if(relativeX - paddleX < paddleWidth / 2 - paddle_dx) {
-        paddleX -= paddle_dx;
-        if (paddleX < 0){
-            paddleX = 0;
-        }
-    }
-
-    //Follow mouse on y
-    if(relativeY - paddleY > paddleHeight / 2 + paddle_dy){
-        paddleY += paddle_dy;
-        if (paddleY + paddleHeight > canvas.height){
-            paddleY = canvas.height - paddleHeight;
-        }
-    }
-    else if(relativeY - paddleY < paddleHeight / 2 - paddle_dy) {
-        paddleY -= paddle_dy;
-    }
+    followMouseMovement();
 
     requestAnimationFrame(draw);
+}
+
+function followMouseMovement(){
+  //Follow mouse on x
+  //console.log(relativeX);
+  if(relativeX - paddleX > paddleWidth / 2 + paddle_dx){
+      paddleX += paddle_dx;
+      if (paddleX + paddleWidth > canvas.width){
+          paddleX = canvas.width - paddleWidth;
+      }
+  }
+  else if(relativeX - paddleX < paddleWidth / 2 - paddle_dx) {
+      paddleX -= paddle_dx;
+      if (paddleX < 0){
+          paddleX = 0;
+      }
+  }
+
+  //Follow mouse on y
+  if(relativeY - paddleY > paddleHeight / 2 + paddle_dy){
+      paddleY += paddle_dy;
+      if (paddleY + paddleHeight > canvas.height){
+          paddleY = canvas.height - paddleHeight;
+      }
+  }
+  else if(relativeY - paddleY < paddleHeight / 2 - paddle_dy) {
+      paddleY -= paddle_dy;
+  }
 }
 
 function drawPaddle() {
@@ -213,12 +270,10 @@ function drawCadreEntries() {
     [ //cadru 0
       { nr_cadru: 0,
         activat: false,
-        x_intrare:10,
-        y_intrare:200,
         entries:[
-          {nr_cadru: 1, x:10, y:200, visitat:false},
-          {nr_cadru: 2, x:240, y:340, visitat:false},
-          {nr_cadru: 3, x:350, y:10, visitat:false},
+          {nr_cadru: 1, x:10, y:200},
+          {nr_cadru: 2, x:240, y:340},
+          {nr_cadru: 3, x:350, y:10},
         ],
       },
     ],
@@ -226,7 +281,7 @@ function drawCadreEntries() {
 
     for (let entry of cadre[cadru_curent].entries) {
         ctx.beginPath();
-        ctx.rect(entry.x, entry.y, paddleWidth/2, paddleHeight*2);
+        ctx.rect(entry.x, entry.y, entriesWidth, entriesHeight);
         ctx.fillStyle = "#12AADD";
         ctx.fill();
         ctx.closePath();
@@ -239,21 +294,7 @@ function drawCadreEntries() {
 
 function drawCadruImg() {
     //draw cadru
-    if(cadru_curent === 0){
-        ctx.drawImage(imgCadru1, 0, 0);
-    }
-    else if(cadru_curent === 1){
-        ctx.drawImage(imgCadru2, 0, 0);
-    }
-    else if(cadru_curent === 2){
-        ctx.drawImage(imgCadru3, 0, 0);
-    }
-    else if(cadru_curent === 3){
-        ctx.drawImage(imgCadru4, 0, 0);
-    }
-    else {
-        ctx.drawImage(imgCadru4, 0, 0);
-    }
+    ctx.drawImage(imaginiCadru[cadru_curent], 0, 0);
 
     ctx.font = "16px Arial";
     ctx.fillStyle = "#0095DD";
@@ -276,9 +317,9 @@ function collisionDetection() {
         x_intrare:10,
         y_intrare:200,
         entries:[
-          {nr_cadru: 1, x:10, y:200, visitat:false},
-          {nr_cadru: 2, x:240, y:340, visitat:false},
-          {nr_cadru: 3, x:350, y:10, visitat:false},
+          {nr_cadru: 1, x:10, y:200},
+          {nr_cadru: 2, x:240, y:340},
+          {nr_cadru: 3, x:350, y:10},
         ],
       },
     ],
@@ -289,6 +330,7 @@ function collisionDetection() {
        //console.log(cadre[cadru_curent][0].entries[cadruEntry].nr_cadru);
     //}
     let hit = false;
+    let intrare_scena = true;
     for (let entry of cadre[cadru_curent].entries) {
         //console.log(entry.nr_cadru);
         //verifica daca loveste intrarea si daca cadrul curent este inactiv => il face activ pentru a nu reintra din nou
@@ -302,6 +344,15 @@ function collisionDetection() {
                 cadru_curent = entry.nr_cadru;
                 console.log("cadru_curent: " + cadru_curent);
                 salvareCadru();
+                //unde apare cursorul pe ecran dupa ce s-a schimbat cadrul
+                if(intrare_scena){
+                    paddleX = 250; //entry.pozitieIntrareX;
+                    paddleY = 250; //entry.pozitieIntrareY;
+                    intrare_scena = false;
+                    relativeX = paddleX;
+                    relativeY = paddleY;
+                }
+
             }
         }
     }
