@@ -289,6 +289,8 @@ function collisionDetection() {
                 cadre[cadru_curent].activat = true;
 
                 cadru_curent = entry.nr_cadru;
+                console.log("cadru_curent: " + cadru_curent);
+                salvareCadru();
             }
         }
     }
