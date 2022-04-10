@@ -93,6 +93,7 @@ let endGamelines = "";
 let flagEndGame = false;
 
 let culoareGuyBrush = "rgba(255, 204, 102, 0.9)";
+let culoareEntriesCadre = "rgba(18, 170, 221,0.8)";//"#12AADD";
 
 function resetare(){
     localStorage.clear();
@@ -202,15 +203,24 @@ function drawPaddle() {
 
 function drawCadreEntries() {
     for (let entry of cadre[cadru_curent].entries) {
+        /*
         ctx.beginPath();
         ctx.rect(entry.x, entry.y, entriesWidth, entriesHeight);
         ctx.fillStyle = "#12AADD";
         ctx.fill();
+        ctx.closePath();*/
+
+        ctx.beginPath();
+        ctx.arc(entry.x, entry.y, entriesWidth / 3, 0, Math.PI*2, false);
+        ctx.fillStyle = culoareEntriesCadre;
+        ctx.fill();
         ctx.closePath();
 
         ctx.font = "16px Arial";
-        ctx.fillStyle = "green";
-        ctx.fillText("Cadru: " + entry.nr_cadru, entry.x, entry.y);
+        ctx.fillStyle = "yellow";
+        ctx.textAlign = "center";
+        ctx.fillText("" + entry.nr_cadru, entry.x, entry.y + 4);
+        ctx.textAlign = "start";
     }
 }
 
