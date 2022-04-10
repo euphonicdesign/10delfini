@@ -121,7 +121,7 @@ function draw() {
 
     drawCadruImg();
     drawPaddle();
-    drawLives();
+    //drawLives();
     drawCadreEntries();
     drawTextCadru();
     drawActiuniInventoryNpcs();
