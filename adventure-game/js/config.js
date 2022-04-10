@@ -22,7 +22,6 @@ var cadre = [
         put your finger on it. For sure, the air is different. It is fresh, and \n\
         you can breathe easily.You look around for the princess, but she's gone.\n\
         What has happened? \n\
-        \n\
         Where would you like to go or do next?",
       textSecund:
         "You are now in the starting place area. It is warm and sunny outside.The \n\

@@ -84,7 +84,7 @@ let textActiuniX = 560;
 let textActiuniY = 50;
 
 let textInventoryX = 560;
-let textInventoryY = 160;
+let textInventoryY = 170;
 
 let textPovesteX = 10;
 let textPovesteY = 420;
@@ -156,6 +156,12 @@ function drawChenareFundal() {
 
   ctx.beginPath();
   ctx.rect(546,0, 252, 598);
+  ctx.strokeStyle = "rgba(153, 102, 51, 1.0)";
+  ctx.stroke();
+  ctx.closePath();
+
+  ctx.beginPath();
+  ctx.rect(546,120, 252, 598);
   ctx.strokeStyle = "rgba(153, 102, 51, 1.0)";
   ctx.stroke();
   ctx.closePath();

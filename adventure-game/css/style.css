@@ -5,13 +5,13 @@
 canvas {
   background: #eee;
   display: block;
-  margin: 0 auto;
+  margin: 1em auto 1em auto;
 }
 body {
-  margin: 0 auto;
+  margin: 1em auto 1em auto;
 }
 
 button {
   display: block;
-  margin: 0 auto;
+  margin: 1em auto 1em auto;
 }
