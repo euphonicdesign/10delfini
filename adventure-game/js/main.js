@@ -87,7 +87,7 @@ let textInventoryX = 560;
 let textInventoryY = 170;
 
 let textPovesteX = 10;
-let textPovesteY = 420;
+let textPovesteY = 424;
 
 let endGamelines = "";
 let flagEndGame = false;
