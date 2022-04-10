@@ -93,7 +93,7 @@ let endGamelines = "";
 let flagEndGame = false;
 
 let culoareGuyBrush = "rgba(255, 204, 102, 0.9)";
-let culoareEntriesCadre = "rgba(18, 170, 221,0.8)";//"#12AADD";
+let culoareEntriesCadre = "rgba(18, 170, 221,0.4)";//"#12AADD";
 
 function resetare(){
     localStorage.clear();
@@ -217,9 +217,9 @@ function drawCadreEntries() {
         ctx.closePath();
 
         ctx.font = "16px Arial";
-        ctx.fillStyle = "yellow";
+        ctx.fillStyle = "white";
         ctx.textAlign = "center";
-        ctx.fillText("" + entry.nr_cadru, entry.x, entry.y + 4);
+        ctx.fillText("" + entry.nr_cadru, entry.x, entry.y + 6);
         ctx.textAlign = "start";
     }
 }
