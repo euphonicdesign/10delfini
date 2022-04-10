@@ -1,7 +1,7 @@
 var npcs = {
     "player": {
         inventory: [
-          "ideas", "map", "tools",
+          "ideas",
         ],
     },
     "computer": {
