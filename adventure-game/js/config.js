@@ -253,9 +253,9 @@ var cadre = [
       pozitieIntrareY: 250,
       entries:[
         {nr_cadru: 3, x:120, y:350},//bridge_end
-        {nr_cadru: 5, x:450, y:140},
-        {nr_cadru: 6, x:300, y:60},//sunny_beach
-        {nr_cadru: 7, x:30, y:60},
+        {nr_cadru: 5, x:470, y:140},
+        {nr_cadru: 6, x:330, y:60},//sunny_beach
+        {nr_cadru: 7, x:50, y:60},
       ],
       textPrim:
         "You walk along a sand alley covered by the shade of the trees which \n\
@@ -330,7 +330,7 @@ var cadre = [
       pozitieIntrareX: 250,
       pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 4, x:210, y:300},
+        {nr_cadru: 4, x:230, y:340},
       ],
       textPrim:
         "You go to the sunny beach. The sand is warm, so you take your shoes off \n\
@@ -562,9 +562,9 @@ var cadre = [
       pozitieIntrareX: 250,
       pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 3, x:10, y:150},
-        {nr_cadru: 10, x:210, y:10},
-        {nr_cadru: 12, x:390, y:150},
+        {nr_cadru: 3, x:20, y:270},
+        {nr_cadru: 10, x:230, y:180},
+        {nr_cadru: 12, x:470, y:270},
       ],
       textPrim:
         "You drive to the right. After a ten minutes' ride, you notice on the \n\
@@ -719,9 +719,9 @@ var cadre = [
       pozitieIntrareX: 250,
       pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 9, x:20, y:250},
-        {nr_cadru: 13, x:460, y:250},
-        {nr_cadru: 14, x:200, y:30},
+        {nr_cadru: 9, x:20, y:270},
+        {nr_cadru: 13, x:490, y:260},
+        {nr_cadru: 14, x:250, y:60},
       ],
       textPrim:
         "You drive to the right until you reach the outskirts of another city. \n\
