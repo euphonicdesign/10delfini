@@ -87,7 +87,7 @@ let textInventoryX = 560;
 let textInventoryY = 160;
 
 let textPovesteX = 10;
-let textPovesteY = 410;
+let textPovesteY = 420;
 
 let endGamelines = "";
 let flagEndGame = false;
@@ -118,8 +118,8 @@ function initializare() {
 function draw() {
     // drawing code
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     drawCadruImg();
+    drawChenareFundal();
     drawPaddle();
     //drawLives();
     drawCadreEntries();
@@ -136,6 +136,32 @@ function draw() {
 
 function generarePosiblitiati() {
     //console.log("play: " + cadre[cadru_curent].actiuni[1]["active"]);
+}
+
+function drawChenareFundal() {
+  //Draw an empty square
+  ctx.lineWidth = 4;
+
+  ctx.beginPath();
+  ctx.rect(2,0, 540, 380);
+  ctx.strokeStyle = "rgba(0, 102, 204, 0.9)";
+  ctx.stroke();
+  ctx.closePath();
+
+  ctx.beginPath();
+  ctx.rect(2,384, 540, 214);
+  ctx.strokeStyle = "rgba(153, 102, 51, 1.0)";
+  ctx.stroke();
+  ctx.closePath();
+
+  ctx.beginPath();
+  ctx.rect(546,0, 252, 598);
+  ctx.strokeStyle = "rgba(153, 102, 51, 1.0)";
+  ctx.stroke();
+  ctx.closePath();
+
+  ctx.lineWidth = 1;
+
 }
 
 function drawEndGameLines(){
