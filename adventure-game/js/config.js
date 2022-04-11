@@ -9,9 +9,9 @@ var cadre = [
       pozitieIntrareX: 250,
       pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 1, x:10, y:200},
-        {nr_cadru: 2, x:240, y:340},
-        {nr_cadru: 3, x:300, y:10},
+        {nr_cadru: 1, x:10, y:260},
+        {nr_cadru: 2, x:278, y:420},
+        {nr_cadru: 3, x:330, y:10},
       ],
       textPrim:
         "Continuing from last time...\n\
@@ -94,7 +94,7 @@ var cadre = [
       pozitieIntrareX: 250,
       pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 0, x:250, y:30},
+        {nr_cadru: 0, x:450, y:170},
       ],
       textPrim:
         "As you walk, you find yourself in front of a small house and decide to \n\
@@ -940,9 +940,9 @@ var cadre = [
 ];
 
 let image_strings = [
-    "./img/starting_place.jpg", //0
+    "./img/starting_place.png", //0
     "./img/library.png",//1
-    "./img/house.jpg",//2
+    "./img/house.png",//2
     "./img/bridge_end.png",//3
     "./img/alley_split.jpg",//4
     "./img/summer_games.png",//5
