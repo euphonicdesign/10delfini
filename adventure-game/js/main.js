@@ -71,20 +71,22 @@ for (let i=0; i<image_strings.length; i++){
 var buton = document.getElementById("resetButton");
 buton.addEventListener("click", resetare);
 
+var textBox = document.getElementById("text-box");
+
 let desenareTextActiune = false;
 let actiuneSelectata = "";
 let actiuneItems = [];
 
-let cadruWidth = 520;
-let cadruHeight = 370;
+let cadruWidth = 610;
+let cadruHeight = 460;
 
 let flagsActiuni = [];
 
-let textActiuniX = 560;
-let textActiuniY = 50;
+let textActiuniX = 20;
+let textActiuniY = 490;
 
-let textInventoryX = 560;
-let textInventoryY = 170;
+let textInventoryX = 634;
+let textInventoryY = 30;
 
 let textPovesteX = 10;
 let textPovesteY = 424;
@@ -142,26 +144,30 @@ function drawChenareFundal() {
   //Draw an empty square
   ctx.lineWidth = 4;
 
+  //stanga sus
   ctx.beginPath();
-  ctx.rect(2,0, 540, 380);
+  ctx.rect(2,2, 610, 460);
   ctx.strokeStyle = "rgba(0, 102, 204, 0.9)";
   ctx.stroke();
   ctx.closePath();
 
+  //stanga jos
   ctx.beginPath();
-  ctx.rect(2,384, 540, 214);
+  ctx.rect(2,466, 610, 130);
   ctx.strokeStyle = "rgba(153, 102, 51, 1.0)";
   ctx.stroke();
   ctx.closePath();
 
+  /*
   ctx.beginPath();
   ctx.rect(546,0, 252, 598);
   ctx.strokeStyle = "rgba(153, 102, 51, 1.0)";
   ctx.stroke();
   ctx.closePath();
-
+  */
+  //drapta - inventory
   ctx.beginPath();
-  ctx.rect(546,120, 252, 598);
+  ctx.rect(616,2, 182, 594);
   ctx.strokeStyle = "rgba(153, 102, 51, 1.0)";
   ctx.stroke();
   ctx.closePath();
@@ -180,12 +186,14 @@ function drawEndGameLines(){
      let y = textPovesteY;
      //ctx.fillStyle = "#0095DD";
      //ctx.fillText(actiuneSelectata, x, y - lineHeight - 2);
+     textBox.textContent = endGamelines;
 
+     /*
      ctx.fillStyle = "#333";
      for (var i = 0; i < endGamelines.length; ++i) {
        ctx.fillText(endGamelines[i].trim(), x, y);
        y += lineHeight;
-     }
+     }*/
    }
 }
 
@@ -264,24 +272,27 @@ function drawTextCadru() {
     if(!desenareTextActiune){
         //afisare text scena - prim - if non-text actiune
         if(!cadre[cadru_curent].vizitat){
-          lines = cadre[cadru_curent].textPrim.split("\n");
+          //lines = cadre[cadru_curent].textPrim.split("\n");
+          textBox.textContent = cadre[cadru_curent].textPrim;
         }
         else {
-          lines = cadre[cadru_curent].textSecund.split("\n");
+          //lines = cadre[cadru_curent].textSecund.split("\n");
+          textBox.textContent = cadre[cadru_curent].textSecund;
         }
-        let x = textPovesteX;
-        let y = textPovesteY;
+        //let x = textPovesteX;
+        //let y = textPovesteY;
+        /*
         for (var i = 0; i < lines.length; ++i) {
           ctx.fillText(lines[i].trim(), x, y);
           y += lineHeight;
-        }
+        }*/
     }
     else {
         //lines = actiuneSelectata;
-        let x = textPovesteX;
-        let y = textPovesteY;
-        ctx.fillStyle = "#0095DD";
-        ctx.fillText(actiuneSelectata, x, y - lineHeight - 2);
+        //let x = textPovesteX;
+        //let y = textPovesteY;
+        //ctx.fillStyle = "#0095DD";
+        //ctx.fillText(actiuneSelectata, x, y - lineHeight - 2);
 
         ctx.fillStyle = "#333";
         //console.log(actiuneSelectata);
@@ -298,7 +309,8 @@ function drawTextCadru() {
                     //if(npcs["player"].inventory.includes(conditie["itemRequired"])){
                     if(conditie["itemsRequired"].every(i => npcs["player"].inventory.includes(i))){
 
-                        lines = actiune["conditie"]["textConditieFalse"].split("\n");
+                        //lines = actiune["conditie"]["textConditieFalse"].split("\n");
+                        textBox.textContent = actiune["conditie"]["textConditieFalse"];
                         //dezactiveaza conditia
                         actiune["conditie"]["required"] = false;
                         //daca se dezactiveaza conditia incarca itemurile asociate cu
@@ -322,21 +334,24 @@ function drawTextCadru() {
                         salvareStare();
                     }else if(conditie["required"]){
                         //console.log(conditie["textConditieTrue"]);
-                        lines = actiune["conditie"]["textConditieTrue"].split("\n");
+                        //lines = actiune["conditie"]["textConditieTrue"].split("\n");
+                        textBox.textContent = actiune["conditie"]["textConditieTrue"];
                     }
                 } else {
                       if(actiune["active"]){
-                        lines = actiune.text.split("\n");
+                        //lines = actiune.text.split("\n");
+                        textBox.textContent = actiune.text;
                       }
                       else{
-                        lines = actiune["textSecund"].split("\n");
+                        //lines = actiune["textSecund"].split("\n");
+                        textBox.textContent = actiune["textSecund"];
                       }
                 }
-
+                /*
                 for (var i = 0; i < lines.length; ++i) {
                   ctx.fillText(lines[i].trim(), x, y);
                   y += lineHeight;
-                }
+                }*/
             }
         }
     }
@@ -366,7 +381,7 @@ function drawActiuniInventoryNpcs() {
     x = textActiuniX;//560;
     y = textActiuniY;//150;
     ctx.fillStyle = "#333";
-    ctx.fillText("Actions:", x, y-lineHeight);
+    //ctx.fillText("Actions:", x, y-lineHeight);
     ctx.fillStyle = "green";
     for (let actiune of cadre[cadru_curent].actiuni) {
         //console.log(actiune.nume);
@@ -377,8 +392,8 @@ function drawActiuniInventoryNpcs() {
     //draw inventory
     x = textInventoryX;//560;
     y = textInventoryY;//280;
-    ctx.fillStyle = "#333";
-    ctx.fillText("Inventory:", x, y-lineHeight);
+    //ctx.fillStyle = "#333";
+    //ctx.fillText("Inventory:", x, y-lineHeight);
     ctx.fillStyle = "orange";
     for (let item of npcs["player"].inventory){
       //console.log(item);

@@ -8,10 +8,18 @@ canvas {
   margin: 1em auto 1em auto;
 }
 body {
+  max-width: 800px;
   margin: 1em auto 1em auto;
 }
 
 button {
-  display: block;
   margin: 1em auto 1em auto;
+}
+
+p {
+  font-family: Verdana, Arial, sans-serif;
+  text-align: justify;
+  line-height: 1.3em;
+  letter-spacing: .01em;
+  font-weight: 400;
 }

@@ -42,7 +42,7 @@ var cadre = [
       pozitieIntrareX: 250,
       pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 0, x:450, y:150},
+        {nr_cadru: 0, x:590, y:360},
       ],
       textPrim:
         "You pass by several house blocks and take several turns. The people you \n\
@@ -64,8 +64,7 @@ var cadre = [
             "textConditieTrue":
               "You go to the library to do some research, but you realize that now \n\
               may not be the best moment. You feel there are some other things to \n\
-              attend first. You are now in the library area. There are several bookcases \n\
-              standing against the wall. Books of all sizes and shapes fill the shelves.",
+              attend first.",
             "textConditieFalse":
               "You start to research the French language. You find a couple of good \n\
               books, some old lectures, some tapes, and a few filmstrips. The grammar \n\
@@ -113,21 +112,22 @@ var cadre = [
             "You go to the bookshelf to read something. Except a couple of fairy \n\
             tales, that stir your imagination, you find most of the books plain \n\
             boring, or it could be that you just don't understand them. In any \n\
-            case, you decide to do something else. You are now in the house area. \n\
-            Everything looks fine. The room is well lit and it has a desk with \n\
-            a computer, a table, a bed, and a very old bookshelf.",
+            case, you decide to do something else.",
           items: [],
           "active" : true,
           "numarClicks" : 0,
           "textSecund" :
-            "Text secund la actiune.",
+            "You go to the bookshelf to read something. Except a couple of fairy \n\
+            tales, that stir your imagination, you find most of the books plain \n\
+            boring, or it could be that you just don't understand them. In any \n\
+            case, you decide to do something else.",
         },
         {
           nume:"play",
           "conditie": {
             "required": true,
             "itemsRequired": ["ideas"],
-            "itemsReturned": [],
+            "itemsReturned": [""],
             "cadruReturnat": 15,
             "textConditieTrue":
               "",
@@ -940,7 +940,7 @@ var cadre = [
 
 let image_strings = [
     "./img/starting_place.jpg", //0
-    "./img/library.jpg",//1
+    "./img/library.png",//1
     "./img/house.jpg",//2
     "./img/bridge_end.png",//3
     "./img/alley_split.jpg",//4
