@@ -220,6 +220,7 @@ var cadre = [
           "conditie": {
             "required": true,
             "itemsRequired": ["keys",],
+            "itemsReturned": [],
             "textConditieTrue": "You need a pair of keys in order to drive the car.",
             "textConditieFalse":
               "You get closer to the car and start inspecting it. From the \n\
@@ -454,7 +455,7 @@ var cadre = [
       pozitieIntrareX: 250,
       pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 7, x:210, y:300},
+        {nr_cadru: 7, x:160, y:400},
       ],
       textPrim:
         "You continue your walk up the dam, and farther into the sea until you \n\
@@ -947,7 +948,7 @@ let image_strings = [
     "./img/summer_games.png",//5
     "./img/sunny_beach.jpg",//6
     "./img/dam.jpg",//7
-    "./img/lighthouse.jpg",//8
+    "./img/lighthouse.png",//8
     "./img/drive_stop.jpg",//9
     "./img/trees.jpg",//10
     "./img/palm_beach.jpg",//11

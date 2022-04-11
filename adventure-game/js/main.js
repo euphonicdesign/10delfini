@@ -83,7 +83,7 @@ let cadruHeight = 460;
 let flagsActiuni = [];
 
 let textActiuniX = 20;
-let textActiuniY = 490;
+let textActiuniY = 470;
 
 let textInventoryX = 634;
 let textInventoryY = 30;
@@ -146,14 +146,14 @@ function drawChenareFundal() {
 
   //stanga sus
   ctx.beginPath();
-  ctx.rect(2,2, 610, 460);
+  ctx.rect(2,2, 610, 438);
   ctx.strokeStyle = "rgba(0, 102, 204, 0.9)";
   ctx.stroke();
   ctx.closePath();
 
   //stanga jos
   ctx.beginPath();
-  ctx.rect(2,466, 610, 130);
+  ctx.rect(2,444, 610, 152);
   ctx.strokeStyle = "rgba(153, 102, 51, 1.0)";
   ctx.stroke();
   ctx.closePath();
@@ -359,7 +359,7 @@ function drawTextCadru() {
 }
 
 function drawActiuniInventoryNpcs() {
-    ctx.font = "18px Times";
+    ctx.font = "20px Times";
 
     var lineHeight = ctx.measureText("M").width * 1.2;
     var lines;
@@ -390,6 +390,9 @@ function drawActiuniInventoryNpcs() {
     }
 
     //draw inventory
+    ctx.font = "18px Times";
+    lineHeight = ctx.measureText("M").width * 1.2;
+
     x = textInventoryX;//560;
     y = textInventoryY;//280;
     //ctx.fillStyle = "#333";
