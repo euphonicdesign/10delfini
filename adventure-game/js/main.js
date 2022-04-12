@@ -87,8 +87,8 @@ let flagsActiuni = [];
 let textActiuniX = 20;
 let textActiuniY = 470;
 
-let textInventoryX = 634;
-let textInventoryY = 30;
+let textInventoryX = 626;
+let textInventoryY = 72;
 
 let textPovesteX = 10;
 let textPovesteY = 424;
@@ -409,8 +409,11 @@ function drawActiuniInventoryNpcs() {
 
     x = textInventoryX;//560;
     y = textInventoryY;//280;
-    //ctx.fillStyle = "#333";
-    //ctx.fillText("Inventory:", x, y-lineHeight);
+    ctx.fillStyle = "#333";
+    ctx.font = "bold 26px Times";
+    ctx.fillText("The Inventory", x, y-lineHeight-12);
+
+    ctx.font = "18px Times";
     ctx.fillStyle = "orange";
     for (let item of npcs["player"].inventory){
       //console.log(item);

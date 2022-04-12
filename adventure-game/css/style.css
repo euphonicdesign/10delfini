@@ -32,7 +32,7 @@ p#text-box {
 
 div.continut-sus {
   display:flex;
-  border: 2px solid #333;
+  /*border: 2px solid #333;*/
 }
 div.continut-sus-stanga {
   font-family: Verdana, Arial, sans-serif;
@@ -43,6 +43,7 @@ div.continut-sus-stanga {
   padding-right: 2em;
   padding-left: 2em;
   border: 2px solid #333;
+  width: 400px;
 }
 
 h1 {
