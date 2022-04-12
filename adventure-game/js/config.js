@@ -74,7 +74,7 @@ var cadre = [
           },
           text:
             "",
-          items: [""],
+          items: [],
           "active" : true,
           "numarClicks" : 0,
           "textSecund" :
@@ -127,7 +127,7 @@ var cadre = [
           "conditie": {
             "required": true,
             "itemsRequired": ["ideas"],
-            "itemsReturned": [""],
+            "itemsReturned": [],
             "cadruReturnat": 15,
             "textConditieTrue":
               "",
@@ -310,7 +310,7 @@ var cadre = [
           },
           text:
             "You play a nice game of basketball.",
-          items: [""],
+          items: [],
           "active" : true,
           "numarClicks" : 0,
           "textSecund" :
@@ -421,11 +421,12 @@ var cadre = [
             looking at them. Although they don't speak much, they make an \n\
             impression on you. You take a pen and some paper and do a seahorse \n\
             drawing. Looking far into the distance, you notice the end of the dam.",
-          items: ["seahorse drawing"],
+          items: ["seahorse drawing",],
           "active" : true,
           "numarClicks" : 0,
           "textSecund" :
-            "Text secund la actiune.",
+            "The seahorses swim peacefully in the proximity of the algae and rocky \
+            formations.",
         },
         {
           nume:"talk",
@@ -493,8 +494,8 @@ var cadre = [
           nume:"climb higher",
           "conditie": {
             "required": true,
-            "itemsRequired": ["song",],
-            "itemsReturned": ["new idea"],
+            "itemsRequired": ["song","lighthouse idea",],
+            "itemsReturned": ["new idea",],
             "textConditieTrue":
               "Perhaps you should return here later to watch the sunset.",
             "textConditieFalse":
@@ -762,7 +763,7 @@ var cadre = [
           "conditie": {
             "required": true,
             "itemsRequired": ["Francais",],
-            "itemsReturned": ["basketball"],
+            "itemsReturned": ["basketball", "lighthouse idea"],
             "textConditieTrue":
               "The girl has an exotic look and she is staring at you with her \n\
               beautiful light-blue eyes. She tries to tell you something in a \n\
@@ -779,7 +780,7 @@ var cadre = [
             beautiful light-blue eyes. She tries to tell you something in a \n\
             language that you don't understand. You are confused. Perhaps now \n\
             it would be a good time to return to the lighthouse.",
-          items: ["new idea"],
+          items: [],
           "active" : true,
           "numarClicks" : 0,
           "textSecund" :

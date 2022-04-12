@@ -73,7 +73,7 @@ buton.addEventListener("click", resetare);
 
 //var textBox = document.getElementById("text-box");
 var textBox = document.getElementsByClassName("text-box")[0];
-console.log(textBox);
+//console.log(textBox);
 
 let desenareTextActiune = false;
 let actiuneSelectata = "";
@@ -333,13 +333,14 @@ function drawTextCadru() {
                             for (let item of actiune["conditie"]["itemsReturned"]){
                                 npcs["player"].inventory.push(item);
                                 actiune["conditie"]["itemsReturned"].pop(item);
+                                //console.log(item);
                             }
 
                         //schimbare cadru daca exista in conditie
                         let cadruReturnat = actiune["conditie"]["cadruReturnat"];
                         if(typeof cadruReturnat != "undefined"){
                           cadru_curent = cadruReturnat;
-                          console.log("hit");
+                          //console.log("hit");
                           endGamelines = actiune.text.split("\n");
                           flagEndGame = true;
                         }
@@ -485,7 +486,7 @@ function collisionDetection() {
 }
 
 function detectareActiuneSelectata() {
-  var actionWidth = 100;
+  var actionWidth = 160;
   var actionHeight = ctx.measureText("M").width * 1.2; //line height
 
   var xActiuni = textActiuniX;
@@ -494,8 +495,9 @@ function detectareActiuneSelectata() {
   for (let actiune of cadre[cadru_curent].actiuni) {
       if(Math.abs(relativeX - xActiuni) < actionWidth && Math.abs(relativeY + 6 - yActiuni) < actionHeight/2){
           //Click inafara zonei pentru a deactiva butonul
-          relativeX = 250;
-          relativeY = 250;
+          relativeX = 280;
+          relativeY = 280;
+
 
           desenareTextActiune = true;
           actiuneSelectata = actiune.nume;
@@ -505,7 +507,10 @@ function detectareActiuneSelectata() {
 
           //1 CLICK
           if(actiune["numarClicks"]==1) {
+              paddleX = 280;
+              paddleY = 280;
               //transfer items actiune catre player
+              //console.log(actiune.items);
               for (let item of actiune.items){
                 npcs["player"].inventory.push(item);
               }
@@ -532,11 +537,14 @@ function detectareActiuneSelectata() {
 }
 
 //CONTROLS
-document.addEventListener("click", mouseMoveHandler, false);
+document.addEventListener("mousedown", mouseMoveHandler, false);
 
 function mouseMoveHandler(e) {
     relativeX = e.clientX - canvas.offsetLeft;
     relativeY = e.clientY - canvas.offsetTop;
+
+    salvareNpcs();
+    salvareStare();
 }
 
 //SALVARE STARE
@@ -561,7 +569,7 @@ function setareCadru() {
     //console.log("setare NrArie initiala " + nr_arie);
   } else {
     cadru_curent = parseInt(localStorage.getItem('cadru'));
-    console.log("cadru incarcat: " + cadru_curent);
+    //console.log("cadru incarcat: " + cadru_curent);
   }
 }
 
@@ -571,7 +579,7 @@ function setareStare() {
     //console.log("setare NrArie initiala " + nr_arie);
   } else {
     cadre = JSON.parse(localStorage.getItem('stare'));
-    console.log("stare incarcata");
+    //console.log("stare incarcata");
   }
 }
 
@@ -580,8 +588,8 @@ function setareNpcs() {
     salvareNpcs();
     //console.log("setare NrArie initiala " + nr_arie);
   } else {
-    cadre = JSON.parse(localStorage.getItem('npcs'));
-    console.log("npcs incarcata");
+    npcs = JSON.parse(localStorage.getItem('npcs'));
+    //console.log("npcs incarcata");
   }
 }
 
