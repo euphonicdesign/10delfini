@@ -31,8 +31,8 @@ var paddleHeight = 20;
 var paddleWidth = 40;
 var entriesWidth = 60;
 var entriesHeight = 20;
-var paddleX = 250;//(canvas.width-paddleWidth) / 2;
-var paddleY = 250;//canvas.height - paddleHeight;
+var paddleX = 280;//(canvas.width-paddleWidth) / 2;
+var paddleY = 280;//canvas.height - paddleHeight;
 var relativeX = paddleX; //mouse click position
 var relativeY = paddleY;
 var paddle_dx = 3;
@@ -469,8 +469,8 @@ function collisionDetection() {
 
                 //unde apare cursorul pe ecran dupa ce s-a schimbat cadrul
                 if(intrare_scena){
-                    paddleX = 250; //entry.pozitieIntrareX;
-                    paddleY = 250; //entry.pozitieIntrareY;
+                    paddleX = 280; //entry.pozitieIntrareX;
+                    paddleY = 280; //entry.pozitieIntrareY;
                     intrare_scena = false;
                     relativeX = paddleX;
                     relativeY = paddleY;

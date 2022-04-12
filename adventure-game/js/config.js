@@ -182,9 +182,9 @@ var cadre = [
       pozitieIntrareX: 250,
       pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 0, x:320, y:350},//starting_place
-        {nr_cadru: 4, x:310, y:110},
-        {nr_cadru: 9, x:470, y:320},
+        {nr_cadru: 0, x:390, y:420},//starting_place
+        {nr_cadru: 4, x:360, y:140},
+        {nr_cadru: 9, x:580, y:370},
       ],
       textPrim:
         "You climb a small hill and reach a high land platform from which you \n\
@@ -579,7 +579,7 @@ var cadre = [
       items: [],
       npcs: [],
     },
-    //drive trees
+    // trees
     {
       "nume_cadru": "trees",
       "nrVizite": 0,
@@ -589,8 +589,8 @@ var cadre = [
       pozitieIntrareX: 250,
       pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 9, x:200, y:350},
-        {nr_cadru: 11, x:210, y:20},
+        {nr_cadru: 9, x:280, y:390},
+        {nr_cadru: 11, x:360, y:180},
       ],
       textPrim:
         "You choose to go near the trees. The branches of the trees are adorned \n\
@@ -633,7 +633,7 @@ var cadre = [
       pozitieIntrareX: 250,
       pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 10, x:200, y:350},
+        {nr_cadru: 10, x:200, y:400},
       ],
       textPrim:
         "You are now in the palm beach area. Seagulls are flying above the sea, \n\
@@ -951,8 +951,8 @@ let image_strings = [
     "./img/dam.jpg",//7
     "./img/lighthouse.png",//8
     "./img/drive_stop.jpg",//9
-    "./img/trees.jpg",//10
-    "./img/palm_beach.jpg",//11
+    "./img/trees.png",//10
+    "./img/palm_beach.png",//11
     "./img/city_intersection.jpg",//12
     "./img/east_city.jpg",//13
     "./img/port.jpg",//14
