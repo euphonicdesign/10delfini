@@ -71,7 +71,9 @@ for (let i=0; i<image_strings.length; i++){
 var buton = document.getElementById("resetButton");
 buton.addEventListener("click", resetare);
 
-var textBox = document.getElementById("text-box");
+//var textBox = document.getElementById("text-box");
+var textBox = document.getElementsByClassName("text-box")[0];
+console.log(textBox);
 
 let desenareTextActiune = false;
 let actiuneSelectata = "";

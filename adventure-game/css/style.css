@@ -4,11 +4,12 @@
 }*/
 canvas {
   background: #eee;
-  display: block;
-  margin: 1em auto 1em auto;
+  display:inline;
+  /*display: block;
+  margin: 1em auto 1em auto;*/
 }
 body {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 1em auto 1em auto;
 }
 
@@ -27,4 +28,20 @@ p {
 
 p#text-box {
   height: 140px;
+}
+
+div.continut-sus {
+  display:flex;
+}
+div.continut-sus-stanga {
+  font-family: Verdana, Arial, sans-serif;
+  text-align: justify;
+  line-height: 1.3em;
+  letter-spacing: .01em;
+  font-weight: 400;
+  padding-right: 2em;
+}
+
+div.continut-sus-dreapta {
+  display: inline;
 }
