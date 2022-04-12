@@ -21,7 +21,7 @@ p {
   font-family: Verdana, Arial, sans-serif;
   text-align: justify;
   line-height: 1.3em;
-  letter-spacing: .01em;
+  /*letter-spacing: .01em;*/
   font-weight: 400;
   border-bottom: 1px solid #333;
 }
@@ -37,9 +37,14 @@ div.continut-sus-stanga {
   font-family: Verdana, Arial, sans-serif;
   text-align: justify;
   line-height: 1.3em;
-  letter-spacing: .01em;
-  font-weight: 400;
+  /*letter-spacing: .01em;*/
+  font-weight: 100;
   padding-right: 2em;
+  padding-left: 2em;
+}
+
+h1 {
+  font-family: Times, serif;
 }
 
 div.continut-sus-dreapta {
