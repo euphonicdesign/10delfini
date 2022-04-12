@@ -32,6 +32,7 @@ p#text-box {
 
 div.continut-sus {
   display:flex;
+  border: 2px solid #333;
 }
 div.continut-sus-stanga {
   font-family: Verdana, Arial, sans-serif;
@@ -41,6 +42,7 @@ div.continut-sus-stanga {
   font-weight: 100;
   padding-right: 2em;
   padding-left: 2em;
+  border: 2px solid #333;
 }
 
 h1 {
@@ -49,4 +51,8 @@ h1 {
 
 div.continut-sus-dreapta {
   display: inline;
+}
+
+div.pagina-story {
+  border: 2px solid #333;
 }

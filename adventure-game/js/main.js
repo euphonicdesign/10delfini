@@ -79,8 +79,8 @@ let desenareTextActiune = false;
 let actiuneSelectata = "";
 let actiuneItems = [];
 
-let cadruWidth = 610;
-let cadruHeight = 460;
+let cadruWidth = 628;
+let cadruHeight = 436;
 
 let flagsActiuni = [];
 
@@ -122,6 +122,7 @@ function initializare() {
 function draw() {
     // drawing code
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawFundal();
     drawCadruImg();
     drawChenareFundal();
     drawPaddle();
@@ -132,10 +133,18 @@ function draw() {
     collisionDetection();
     detectareActiuneSelectata();
     followMouseMovement();
-    generarePosiblitiati();
+    //generarePosiblitiati();
     drawEndGameLines();
 
     requestAnimationFrame(draw);
+}
+
+function drawFundal() {
+    ctx.beginPath();
+    ctx.rect(0,0, 800, 600);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.closePath();
 }
 
 function generarePosiblitiati() {
@@ -144,19 +153,22 @@ function generarePosiblitiati() {
 
 function drawChenareFundal() {
   //Draw an empty square
+  //fundal
+  //stanga sus
+
   ctx.lineWidth = 4;
 
   //stanga sus
   ctx.beginPath();
-  ctx.rect(2,2, 610, 438);
-  ctx.strokeStyle = "rgba(0, 102, 204, 0.9)";
+  ctx.rect(0,0, 610, 438);
+  ctx.strokeStyle = "#333";
   ctx.stroke();
   ctx.closePath();
 
   //stanga jos
   ctx.beginPath();
-  ctx.rect(2,444, 610, 152);
-  ctx.strokeStyle = "rgba(153, 102, 51, 1.0)";
+  ctx.rect(0,438, 610, 162);
+  ctx.strokeStyle = "#333";
   ctx.stroke();
   ctx.closePath();
 
@@ -169,8 +181,8 @@ function drawChenareFundal() {
   */
   //drapta - inventory
   ctx.beginPath();
-  ctx.rect(616,2, 182, 594);
-  ctx.strokeStyle = "rgba(153, 102, 51, 1.0)";
+  ctx.rect(610,0, 190, 600);
+  ctx.strokeStyle = "#333";
   ctx.stroke();
   ctx.closePath();
 
