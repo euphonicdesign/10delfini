@@ -825,6 +825,7 @@ var cadre = [
             "required": true,
             "itemsRequired": ["understanding","smile1","smile2","smile3"],
             "itemsReturned": [],
+            "cadruReturnat": 16,
             "textConditieTrue":
               "You talk to the sailor. He has interesting stories to tell. You ask \n\
               him whether he has any food aboard and he kindly offers you some. He \n\
@@ -855,7 +856,7 @@ var cadre = [
             "itemsRequired": ["seahorse drawing",],
             "itemsReturned": ["smile1"],
             "textConditieTrue":
-              "You don't have any seahorse drawing...",
+              "You don't have any seahorse drawings...",
             "textConditieFalse":
               "The sailor takes the drawing and smiles at you. He puts it down, on \n\
               the table next to him.",
@@ -876,7 +877,7 @@ var cadre = [
             "itemsRequired": ["seagull drawing",],
             "itemsReturned": ["smile2"],
             "textConditieTrue":
-              "You don't have any seagull drawing...",
+              "You don't have any seagull drawings...",
             "textConditieFalse":
             "The sailor takes the drawing and smiles at you. He puts it down, on \n\
             the table next to him.",
@@ -897,7 +898,7 @@ var cadre = [
             "itemsRequired": ["dolphin drawing",],
             "itemsReturned": ["smile3"],
             "textConditieTrue":
-              "You don't have any dolphin drawing...",
+              "You don't have any dolphin drawings...",
             "textConditieFalse":
             "The sailor takes the drawing and smiles at you. He puts it down, on \n\
             the table next to him.",
@@ -938,6 +939,35 @@ var cadre = [
       npcs: [],
     },
 
+    //end of chapter
+    {
+      "nume_cadru": "end_of_chapter",
+      "nrVizite": 0,
+      nr_cadru: 16,
+      activat: false,
+      vizitat: false,
+      pozitieIntrareX: 250,
+      pozitieIntrareY: 250,
+      entries:[
+        {nr_cadru: 2, x:250, y:30},
+      ],
+      textPrim:
+      "You talk to the sailor. The sailor looks at the 3 drawings he got \n\
+      from you: the one with the seagull, the one with the seahorse, and \n\
+      the one with the dolphin. He smiles knowingly at you, and you smile, \n\
+      because now... you know what freedom is...\n\
+      You are now in the end of the chapter area. Suddenly another thought \n\
+      crosses your mind: 'Ou est la princesse?' You must find her! Another \n\
+      journey is about to start! \n\
+      To be continued...",
+      textSecund:
+        "Text secund end of chapter",
+      actiuni: [
+      ],
+      items: [],
+      npcs: [],
+    },
+
 ];
 
 let image_strings = [
@@ -955,6 +985,7 @@ let image_strings = [
     "./img/palm_beach.png",//11
     "./img/city_intersection.jpg",//12
     "./img/east_city.jpg",//13
-    "./img/port.jpg",//14
+    "./img/port.png",//14
     "./img/map.jpg",//15
+    "./img/end_of_chapter.jpg",//15
 ];
