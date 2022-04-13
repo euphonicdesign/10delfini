@@ -225,6 +225,9 @@ function drawEndGameLines(){
 }
 
 function followMouseMovement(){
+    //evitat urmarit mouse cand click in zona actiunilor
+    if (relativeY > cadruHeight) return;
+
   //Follow mouse on x
   //console.log(relativeX);
   if(relativeX - paddleX > paddleWidth / 2 + paddle_dx){
@@ -241,6 +244,8 @@ function followMouseMovement(){
   }
 
   //Follow mouse on y
+
+
   if(relativeY - paddleY > paddleHeight / 2 + paddle_dy){
       paddleY += paddle_dy;
       if (paddleY + paddleHeight > cadruHeight){
