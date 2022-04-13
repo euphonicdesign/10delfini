@@ -941,7 +941,7 @@ var cadre = [
 
     //end of chapter
     {
-      "nume_cadru": "end_of_chapter",
+      "nume_cadru": "end_of_the_chapter",
       "nrVizite": 0,
       nr_cadru: 16,
       activat: false,
@@ -987,5 +987,5 @@ let image_strings = [
     "./img/east_city.jpg",//13
     "./img/port.png",//14
     "./img/map.jpg",//15
-    "./img/end_of_the_chapter.jpg",//15
+    "./img/end_of_the_chapter.jpg",//16
 ];

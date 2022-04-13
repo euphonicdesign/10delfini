@@ -164,7 +164,13 @@ function drawChenareFundal() {
   //stanga sus
 
   ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.rect(0,0, 610, 600);
+  ctx.strokeStyle = "#333";
+  ctx.stroke();
+  ctx.closePath();
 
+  /*
   //stanga sus
   ctx.beginPath();
   ctx.rect(0,0, 610, 438);
@@ -178,7 +184,7 @@ function drawChenareFundal() {
   ctx.strokeStyle = "#333";
   ctx.stroke();
   ctx.closePath();
-
+*/
   /*
   ctx.beginPath();
   ctx.rect(546,0, 252, 598);
@@ -561,8 +567,8 @@ function mouseDownHandler(e) {
 function mouseMoveHandler(e) {
     let mouseX = e.clientX - canvas.offsetLeft;
     let mouseY = e.clientY - canvas.offsetTop;
-    console.log("X:" + mouseX);
-    console.log("Y:" + mouseY);
+    //console.log("X:" + mouseX);
+    //console.log("Y:" + mouseY);
 
     var xActiuni = textActiuniX;
     var yActiuni = textActiuniY;
