@@ -486,7 +486,7 @@ function collisionDetection() {
 }
 
 function detectareActiuneSelectata() {
-  var actionWidth = 160;
+  var actionWidth = 200;
   var actionHeight = ctx.measureText("M").width * 1.2; //line height
 
   var xActiuni = textActiuniX;

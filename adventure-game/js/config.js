@@ -162,7 +162,7 @@ var cadre = [
           },
           text:
             "",
-          items: ["keys",],
+          items: [],
           "active" : true,
           "numarClicks" : 0,
           "textSecund" :
@@ -927,7 +927,7 @@ var cadre = [
       pozitieIntrareX: 250,
       pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 2, x:250, y:30},
+        {nr_cadru: 2, x:250, y:400},
       ],
       textPrim:
         "",
