@@ -763,7 +763,7 @@ var cadre = [
           "conditie": {
             "required": true,
             "itemsRequired": ["Francais",],
-            "itemsReturned": ["basketball", "lighthouse idea"],
+            "itemsReturned": ["basketball",],
             "textConditieTrue":
               "The girl has an exotic look and she is staring at you with her \n\
               beautiful light-blue eyes. She tries to tell you something in a \n\
@@ -780,7 +780,7 @@ var cadre = [
             beautiful light-blue eyes. She tries to tell you something in a \n\
             language that you don't understand. You are confused. Perhaps now \n\
             it would be a good time to return to the lighthouse.",
-          items: [],
+          items: ["lighthouse idea",],
           "active" : true,
           "numarClicks" : 0,
           "textSecund" :
