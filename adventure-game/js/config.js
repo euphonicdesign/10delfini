@@ -987,5 +987,5 @@ let image_strings = [
     "./img/east_city.jpg",//13
     "./img/port.png",//14
     "./img/map.jpg",//15
-    "./img/end_of_chapter.jpg",//15
+    "./img/end_of_the_chapter.jpg",//15
 ];

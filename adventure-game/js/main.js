@@ -99,6 +99,13 @@ let flagEndGame = false;
 let culoareGuyBrush = "rgba(255, 204, 102, 0.9)";
 let culoareEntriesCadre = "rgba(18, 170, 221,0.4)";//"#12AADD";
 
+let culoareTextActiuni = ["green"];
+let culoareActiuneMouseOver = "#0095DD";
+
+let actionWidth = 200;
+
+
+
 function resetare(){
     localStorage.clear();
     location.reload();
@@ -397,11 +404,14 @@ function drawActiuniInventoryNpcs() {
     y = textActiuniY;//150;
     ctx.fillStyle = "#333";
     //ctx.fillText("Actions:", x, y-lineHeight);
-    ctx.fillStyle = "green";
+    //ctx.fillStyle = culoareTextActiuni;
+    let i=0;
     for (let actiune of cadre[cadru_curent].actiuni) {
         //console.log(actiune.nume);
+        ctx.fillStyle = culoareTextActiuni[i];
         ctx.fillText(actiune.nume, x, y);
         y += lineHeight;
+        i++;
     }
 
     //draw inventory
@@ -486,7 +496,7 @@ function collisionDetection() {
 }
 
 function detectareActiuneSelectata() {
-  var actionWidth = 200;
+
   var actionHeight = ctx.measureText("M").width * 1.2; //line height
 
   var xActiuni = textActiuniX;
@@ -537,14 +547,43 @@ function detectareActiuneSelectata() {
 }
 
 //CONTROLS
-document.addEventListener("mousedown", mouseMoveHandler, false);
+document.addEventListener("mousedown", mouseDownHandler, false);
+document.addEventListener("mousemove", mouseMoveHandler, false);
 
-function mouseMoveHandler(e) {
+function mouseDownHandler(e) {
     relativeX = e.clientX - canvas.offsetLeft;
     relativeY = e.clientY - canvas.offsetTop;
 
     salvareNpcs();
     salvareStare();
+}
+
+function mouseMoveHandler(e) {
+    let mouseX = e.clientX - canvas.offsetLeft;
+    let mouseY = e.clientY - canvas.offsetTop;
+    console.log("X:" + mouseX);
+    console.log("Y:" + mouseY);
+
+    var xActiuni = textActiuniX;
+    var yActiuni = textActiuniY;
+
+    ctx.font = "18px Times";
+    var actionHeight = ctx.measureText("M").width * 1.2; //line height
+
+    let i=0;
+    for (let actiune of cadre[cadru_curent].actiuni) {
+        if(Math.abs(mouseX - xActiuni) < actionWidth && Math.abs(mouseY + 6 - yActiuni) < actionHeight/2){
+            culoareTextActiuni[i] = culoareActiuneMouseOver;
+        }
+        else {
+            culoareTextActiuni[i] = "green";
+        }
+
+        //urmatorea actiune e plasata cu un increment mai jos
+        yActiuni += actionHeight;
+        i++;
+    }
+
 }
 
 //SALVARE STARE
