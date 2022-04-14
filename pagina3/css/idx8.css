@@ -75,7 +75,7 @@ div#special-div p {
 }
 
 td {
-  padding: .2em;
+  padding: .25em;
 }
 
 p.spaced {
@@ -88,5 +88,5 @@ table {
 
 th, td {
   border: 1px solid black;
-  padding: .2em;
+  padding: .25em;
 }
