@@ -31,8 +31,8 @@ var paddleHeight = 20;
 var paddleWidth = 40;
 var entriesWidth = 60;
 var entriesHeight = 20;
-var paddleX = 280;//(canvas.width-paddleWidth) / 2;
-var paddleY = 280;//canvas.height - paddleHeight;
+var paddleX = cadre[0].pozitieIntrareX;//(canvas.width-paddleWidth) / 2;
+var paddleY = cadre[0].pozitieIntrareY;//canvas.height - paddleHeight;
 var relativeX = paddleX; //mouse click position
 var relativeY = paddleY;
 var paddle_dx = 3;
@@ -490,8 +490,9 @@ function collisionDetection() {
 
                 //unde apare cursorul pe ecran dupa ce s-a schimbat cadrul
                 if(intrare_scena){
-                    paddleX = 280; //entry.pozitieIntrareX;
-                    paddleY = 280; //entry.pozitieIntrareY;
+                    console.log("intrare scena");
+                    paddleX = cadre[cadru_curent].pozitieIntrareX;
+                    paddleY = cadre[cadru_curent].pozitieIntrareY;
                     intrare_scena = false;
                     relativeX = paddleX;
                     relativeY = paddleY;
@@ -516,9 +517,8 @@ function detectareActiuneSelectata() {
   for (let actiune of cadre[cadru_curent].actiuni) {
       if(Math.abs(relativeX - xActiuni) < actionWidth && Math.abs(relativeY + 6 - yActiuni) < actionHeight/2){
           //Click inafara zonei pentru a deactiva butonul
-          relativeX = 280;
-          relativeY = 280;
-
+          relativeX = cadre[cadru_curent].pozitieIntrareX;
+          relativeY = cadre[cadru_curent].pozitieIntrareY;
 
           desenareTextActiune = true;
           actiuneSelectata = actiune.nume;
@@ -528,8 +528,8 @@ function detectareActiuneSelectata() {
 
           //1 CLICK
           if(actiune["numarClicks"]==1) {
-              paddleX = 280;
-              paddleY = 280;
+              paddleX = cadre[cadru_curent].pozitieIntrareX;
+              paddleY = cadre[cadru_curent].pozitieIntrareY;
               //transfer items actiune catre player
               //console.log(actiune.items);
               for (let item of actiune.items){
@@ -572,8 +572,8 @@ function mouseDownHandler(e) {
 function mouseMoveHandler(e) {
     let mouseX = e.clientX - canvas.offsetLeft;
     let mouseY = e.clientY - canvas.offsetTop;
-    //console.log("X:" + mouseX);
-    //console.log("Y:" + mouseY);
+    console.log("X:" + mouseX);
+    console.log("Y:" + mouseY);
 
     var xActiuni = textActiuniX;
     var yActiuni = textActiuniY;

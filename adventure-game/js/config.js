@@ -2,13 +2,13 @@ var cadre = [
     //starting_place
     {
       "nume_cadru": "starting_place",
-      "nrVizite": 1,
+      "nrVizite": 1, //cadrul de inceput are intotdeauna 1, restul au 0
       nr_cadru: 0,
       activat: false,
       vizitat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
-      entries:[
+      pozitieIntrareX: 300, //pozitia jucatorului
+      pozitieIntrareY: 340,
+      entries:[ //link-uri celelalte cadre - pozitia cercurilor
         {nr_cadru: 1, x:10, y:260},
         {nr_cadru: 2, x:278, y:420},
         {nr_cadru: 3, x:330, y:10},
@@ -39,8 +39,8 @@ var cadre = [
       nr_cadru: 1,
       activat: false,
       vizitat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
+      pozitieIntrareX: 460,
+      pozitieIntrareY: 370,
       entries:[
         {nr_cadru: 0, x:590, y:360},
       ],
@@ -59,7 +59,7 @@ var cadre = [
           nume:"research",
           "conditie": {
             "required": true,
-            "itemsRequired": ["new idea",],
+            "itemsRequired": ["morning",],
             "itemsReturned": ["Francais",],
             "textConditieTrue":
               "You go to the library to do some research, but you realize that now \n\
@@ -91,35 +91,35 @@ var cadre = [
       nr_cadru: 2,
       activat: false,
       vizitat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
+      pozitieIntrareX: 210,
+      pozitieIntrareY: 290,
       entries:[
         {nr_cadru: 0, x:450, y:170},
       ],
       textPrim:
-        "As you walk, you find yourself in front of a small house and decide to \n\
-        enter. Inside, you find a desk with a computer, a table, a bed, and a \n\
+        "As you walk, you find yourself in front of a small house and decide to \
+        enter. Inside, you find a desk with a computer, a table, a bed, and a \
         very old bookshelf that has several books.",
 
       textSecund:
-        "You are now in the house area. Everything looks fine. The room is well \n\
-        lit and it has a desk with a computer, a table, a bed, and a very old \n\
+        "You are now in the house area. Everything looks fine. The room is well \
+        lit and it has a desk with a computer, a table, a bed, and a very old \
         bookshelf.",
       actiuni: [
         {
           nume:"read",
           text:
-            "You go to the bookshelf to read something. Except a couple of fairy \n\
-            tales, that stir your imagination, you find most of the books plain \n\
-            boring, or it could be that you just don't understand them. In any \n\
+            "You go to the bookshelf to read something. Except a couple of fairy \
+            tales, that stir your imagination, you find most of the books plain \
+            boring, or it could be that you just don't understand them. In any \
             case, you decide to do something else.",
           items: [],
           "active" : true,
           "numarClicks" : 0,
           "textSecund" :
-            "You go to the bookshelf to read something. Except a couple of fairy \n\
-            tales, that stir your imagination, you find most of the books plain \n\
-            boring, or it could be that you just don't understand them. In any \n\
+            "You go to the bookshelf to read something. Except a couple of fairy \
+            tales, that stir your imagination, you find most of the books plain \
+            boring, or it could be that you just don't understand them. In any \
             case, you decide to do something else.",
         },
         {
@@ -150,7 +150,7 @@ var cadre = [
           nume:"eat",
           "conditie": {
             "required": true,
-            "itemsRequired": ["food", "new idea"],
+            "itemsRequired": ["food", "morning"],
             "itemsReturned": ["strength"],
             "textConditieTrue":
               "You are not hungry at this time of the day.",
@@ -179,35 +179,35 @@ var cadre = [
       nr_cadru: 3,
       activat: false,
       vizitat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
+      pozitieIntrareX: 480,
+      pozitieIntrareY: 390,
       entries:[
         {nr_cadru: 0, x:390, y:420},//starting_place
         {nr_cadru: 4, x:360, y:140},
         {nr_cadru: 9, x:580, y:370},
       ],
       textPrim:
-        "You climb a small hill and reach a high land platform from which you \n\
-        can see the surroundings. There is a big bridge in front of you, and at \n\
-        the other end, you notice an outdated car that seems to be abandoned. \n\
-        In the far distance, you can see the white golden shores of the sea and \n\
-        a long dam extending far into the sea. Waves of various sizes and shapes \n\
-        create strips of white foam as they come towards the shore. You cross the \n\
-        bridge, and find yourself at the other end. This place looks like a \n\
-        medium sized cross-road. There is a colourful mural nearby with some \n\
+        "You climb a small hill and reach a high land platform from which you \
+        can see the surroundings. There is a big bridge in front of you, and at \
+        the other end, you notice an outdated car that seems to be abandoned. \
+        In the far distance, you can see the white golden shores of the sea and \
+        a long dam extending far into the sea. Waves of various sizes and shapes \
+        create strips of white foam as they come towards the shore. You cross the \
+        bridge, and find yourself at the other end. This place looks like a \
+        medium sized cross-road. There is a colourful mural nearby with some \
         shapes engraved on it. To your right side, there is an abandoned old car.",
       textSecund:
-        "You are now in the bridge end area. This place looks like a medium sized \n\
-        cross-road. There is a colourful mural nearby with some shapes engraved \n\
+        "You are now in the bridge end area. This place looks like a medium sized \
+        cross-road. There is a colourful mural nearby with some shapes engraved \
         on it. To your right side, there is an abandoned old car.",
       actiuni: [
         {
           nume:"contemplate mural",
           text:
-            "You get closer to the mural. The carvings seem to depict young \n\
-            people playing different sports on the beach. Some of them are \n\
-            swimming, some others are playing various other games. There are a \n\
-            couple of seagulls flying above in the air. Several fish schools \n\
+            "You get closer to the mural. The carvings seem to depict young \
+            people playing different sports on the beach. Some of them are \
+            swimming, some others are playing various other games. There are a \
+            couple of seagulls flying above in the air. Several fish schools \
             swim in the sea, and a group of dolphins are having fun.",
             items: [],
             "active" : true,
@@ -220,8 +220,9 @@ var cadre = [
           "conditie": {
             "required": true,
             "itemsRequired": ["keys",],
-            "itemsReturned": [],
-            "textConditieTrue": "You need a pair of keys in order to drive the car.",
+            "itemsReturned": ["car"],
+            "textConditieTrue": "You try the door of the car, but it’s locked. \
+              You try to force it, to no avail.",
             "textConditieFalse":
               "You get closer to the car and start inspecting it. From the \n\
               outside, it looks rather old and out-fashioned. You wonder if it \n\
@@ -249,7 +250,7 @@ var cadre = [
       nr_cadru: 4,
       activat: false,
       vizitat: false,
-      pozitieIntrareX: 250,
+      pozitieIntrareX: 290,
       pozitieIntrareY: 250,
       entries:[
         {nr_cadru: 3, x:120, y:350},//bridge_end
@@ -299,7 +300,12 @@ var cadre = [
             "required": true,
             "itemsRequired": ["basketball","good form",],
             "itemsReturned": ["understanding",],
-            "textConditieTrue": "Your form may be lacking...",
+            "textConditieTrue":
+              "It’s been awhile since you played a game, so \
+              you decide to take a couple of shots with a makeshift ball. It seems \
+              your accuracy is not as good as it used to be, and you miss good form. \
+              Perhaps you should \
+              train a bit before trying again.",
             "textConditieFalse":
               "You missed playing a good game, so you decide to take a couple \n\
               of shots. Since you are in good form, you run for the final shot \n\
@@ -338,7 +344,9 @@ var cadre = [
         the beach, and they seem to be having fun. The sea waves are coming and \n\
         going. Where the sand gets wet, you notice an interesting seashell. It's \n\
         one of those big ones that always stand apart.",
-      textSecund: "",
+      textSecund: "You go to the sunny beach. The sand is warm, so you take your shoes off \n\
+      and start walking barefoot. It feels nice. There are several people on \n\
+      the beach, and they seem to be having fun.",
       actiuni: [
         {
           nume:"swim",
@@ -348,7 +356,7 @@ var cadre = [
             "itemsReturned": ["good form",],
             "textConditieTrue":
               "You go to swim, but the water is still cold. Perhaps you should try \n\
-              again some other time.",
+              again some other time. Make sure you have eaten something before diving in.",
             "textConditieFalse":
               "You test the water with your feet. The water is good! You dive in \n\
               and go full speed ahead. The sea is calm today, and you advance \n\
@@ -393,11 +401,11 @@ var cadre = [
       nr_cadru: 7,
       activat: false,
       vizitat: false,
-      pozitieIntrareX: 250,
+      pozitieIntrareX: 90,
       pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 4, x:210, y:300},
-        {nr_cadru: 8, x:210, y:30},
+        {nr_cadru: 4, x:120, y:300},
+        {nr_cadru: 8, x:60, y:70},
       ],
       textPrim:
         "You pass by a beautiful beach with golden sand dunes. In some places, \n\
@@ -430,6 +438,19 @@ var cadre = [
         },
         {
           nume:"talk",
+          "conditie": {
+            "required": true,
+            "itemsRequired": ["morning"],
+            "itemsReturned": [],
+            "textConditieTrue":
+              "You greet the fisherman and chat a bit about the weather and the \n\
+              sea. It seems that the other day, there was a thunderstorm with big \n\
+              lightning bolts, which stirred the sea. Now the sea is calm, but \n\
+              there are no fish around, only a couple of seahorses.",
+            "textConditieFalse":
+              "You talk to the fisherman and he says there are plenty of fish. \
+              They attract groups of dolphins.",
+          },
           text:
             "You greet the fisherman and chat a bit about the weather and the \n\
             sea. It seems that the other day, there was a thunderstorm with big \n\
@@ -468,34 +489,36 @@ var cadre = [
       actiuni: [
         {
           nume:"climb",
+          "conditie": {
+            "required": true,
+            "itemsRequired": ["fisherman_talked"],
+            "itemsReturned": [],
+            "textConditieTrue":
+              "You climb the rocks. From up here, you can see the open sea. The \n\
+              wind blows softly and cools you off from the heat of the sun. The \n\
+              sea waves hit the rocks and create big splashes. Some of the water \n\
+              drips reach you; they are cold. Looking far away into the distance, \n\
+              you notice a tiny dot floating above the horizon line. It must be a \n\
+              ship sailing around.",
+            "textConditieFalse":
+              "You get closer to the water and immerse your feet \n\
+              in it. The water is still cool after yesterday's thunderstorm, but \n\
+              the sensation is nice, because it is contrasting with the heat outside.",
+          },
           text:
-          "You climb the rocks. From up here, you can see the open sea. The \n\
-          wind blows softly and cools you off from the heat of the sun. The \n\
-          sea waves hit the rocks and create big splashes. Some of the water \n\
-          drips reach you; they are cold. Looking far away into the distance, \n\
-          you notice a tiny dot floating above the horizon line. It must be a \n\
-          ship sailing around. You get closer to the water and immerse your feet \n\
-          in it. The water is still cool after yesterday's thunderstorm, but \n\
-          the sensation is nice, because it is contrasting with the heat outside.",
-          items: [],
+          "",
+          items: ["lighthouse_visited"],
           "active" : true,
           "numarClicks" : 0,
           "textSecund" :
-            "You climb the rocks. From up here, you can see the open sea. The \n\
-            wind blows softly and cools you off from the heat of the sun. The \n\
-            sea waves hit the rocks and create big splashes. Some of the water \n\
-            drips reach you; they are cold. Looking far away into the distance, \n\
-            you notice a tiny dot floating above the horizon line. It must be a \n\
-            ship sailing around. You get closer to the water and immerse your feet \n\
-            in it. The water is still cool after yesterday's thunderstorm, but \n\
-            the sensation is nice, because it is contrasting with the heat outside.",
+            "",
         },
         {
           nume:"climb higher",
           "conditie": {
             "required": true,
-            "itemsRequired": ["song","lighthouse idea",],
-            "itemsReturned": ["new idea",],
+            "itemsRequired": ["song","talked_to_exotic_girl",],
+            "itemsReturned": ["morning",],
             "textConditieTrue":
               "Perhaps you should return here later to watch the sunset.",
             "textConditieFalse":
@@ -530,10 +553,10 @@ var cadre = [
           nume:"climb highest",
           "conditie": {
             "required": true,
-            "itemsRequired": ["new idea","strength"],
+            "itemsRequired": ["morning","strength"],
             "itemsReturned": ["dolphin drawing"],
             "textConditieTrue":
-              "Perhaps you should return here some other day.",
+              "Perhaps you should return here some other time.",
             "textConditieFalse":
               "You climb the rocks and... something amazing is undergoing in \n\
               front of your eyes. A large group of dolphins are swimming together \n\
@@ -586,8 +609,8 @@ var cadre = [
       nr_cadru: 10,
       activat: false,
       vizitat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
+      pozitieIntrareX: 300,
+      pozitieIntrareY: 330,
       entries:[
         {nr_cadru: 9, x:280, y:390},
         {nr_cadru: 11, x:360, y:180},
@@ -602,17 +625,26 @@ var cadre = [
       actiuni: [
         {
           nume:"listen",
+          "conditie": {
+            "required": true,
+            "itemsRequired": ["seashell"],
+            "itemsReturned": [],
+            "textConditieTrue":
+              "Something's missing...",
+            "textConditieFalse":
+              "As you listen, you hear a low sound that seems to repeat itself. The sound \n\
+              seems to originate from the area behind the trees. You realize it is the same \n\
+              sound as the one you have heard in the seashell - the sea waves and sea wind \n\
+              concerting together. For sure there must be a hidden beach behind this dense \n\
+              vegetation. You start moving branches and make your way through until you reach \n\
+              a marvellous beach. You catch your breath under the shade of a palm tree and start \n\
+              noticing the surroundings. Seagulls are flying above the sea, making calls from \n\
+              time to time. On the beach, there is a group of mermaids giggling. \n\
+              Close to the water, you notice several sand castles. Altough fragile, \n\
+              they seem to resist the sea waves that are hitting them incessantly.",
+          },
           text:
-            "As you listen, you hear a low sound that seems to repeat itself. The sound \n\
-            seems to originate from the area behind the trees. You realize it is the same \n\
-            sound as the one you have heard in the seashell - the sea waves and sea wind \n\
-            concerting together. For sure there must be a hidden beach behind this dense \n\
-            vegetation. You start moving branches and make your way through until you reach \n\
-            a marvellous beach. You catch your breath under the shade of a palm tree and start \n\
-            noticing the surroundings. Seagulls are flying above the sea, making calls from \n\
-            time to time. On the beach, there is a group of mermaids giggling. \n\
-            Close to the water, you notice several sand castles. Altough fragile, \n\
-            they seem to resist the sea waves that are hitting them incessantly.",
+            "",
           items: [],
           "active" : true,
           "numarClicks" : 0,
@@ -631,7 +663,7 @@ var cadre = [
       activat: false,
       vizitat: false,
       pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
+      pozitieIntrareY: 350,
       entries:[
         {nr_cadru: 10, x:200, y:400},
       ],
@@ -684,9 +716,9 @@ var cadre = [
           nume:"give seashell",
           "conditie": {
             "required": true,
-            "itemsRequired": ["seashell",],
+            "itemsRequired": ["seashell","talked_to_exotic_girl","lighthouse_visited"],
             "itemsReturned": ["song"],
-            "textConditieTrue": "You need to get a seashell first.",
+            "textConditieTrue": "You need to get a seashell first and speak to more people.",
             "textConditieFalse":
               "The mermaids take the seashell and start singing a beautiful song \n\
               in a language you don't understand. You are a bit disappointed that \n\
@@ -718,7 +750,7 @@ var cadre = [
       activat: false,
       vizitat: false,
       pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
+      pozitieIntrareY: 310,
       entries:[
         {nr_cadru: 9, x:20, y:270},
         {nr_cadru: 13, x:490, y:260},
@@ -744,10 +776,10 @@ var cadre = [
       nr_cadru: 13,
       activat: false,
       vizitat: false,
-      pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
+      pozitieIntrareX: 140,
+      pozitieIntrareY: 300,
       entries:[
-        {nr_cadru: 12, x:20, y:250},
+        {nr_cadru: 12, x:30, y:310},
       ],
       textPrim:
         "You drive to the right until you reach the east side of the city. You \n\
@@ -762,7 +794,7 @@ var cadre = [
           nume:"talk",
           "conditie": {
             "required": true,
-            "itemsRequired": ["Francais",],
+            "itemsRequired": ["Francais","lighthouse_visited","song"],
             "itemsReturned": ["basketball",],
             "textConditieTrue":
               "The girl has an exotic look and she is staring at you with her \n\
@@ -780,7 +812,7 @@ var cadre = [
             beautiful light-blue eyes. She tries to tell you something in a \n\
             language that you don't understand. You are confused. Perhaps now \n\
             it would be a good time to return to the lighthouse.",
-          items: ["lighthouse idea",],
+          items: ["talked_to_exotic_girl",],
           "active" : true,
           "numarClicks" : 0,
           "textSecund" :
@@ -798,9 +830,9 @@ var cadre = [
       activat: false,
       vizitat: false,
       pozitieIntrareX: 250,
-      pozitieIntrareY: 250,
+      pozitieIntrareY: 350,
       entries:[
-        {nr_cadru: 12, x:250, y:350},
+        {nr_cadru: 12, x:80, y:350},
       ],
       textPrim:
         "You take the up route and drive along the coastline until you \n\
@@ -836,13 +868,13 @@ var cadre = [
               from you: the one with the seagull, the one with the seahorse, and \n\
               the one with the dolphin. He smiles knowingly at you, and you smile, \n\
               because now... you know what freedom is...\n\
-              You are now in the end of the chapter area. Suddenly another thought \n\
+              You are now at the end of the chapter. Suddenly another thought \n\
               crosses your mind: 'Ou est la princesse?' You must find her! Another \n\
               journey is about to start! \n\
               To be continued...",
             },
           text: "",
-          items: ["food"],
+          items: ["food", "fisherman_talked"],
           "active" : true,
           "numarClicks" : 0,
           "textSecund" :
@@ -941,7 +973,7 @@ var cadre = [
 
     //end of chapter
     {
-      "nume_cadru": "end_of_the_chapter",
+      "nume_cadru": "theend",
       "nrVizite": 0,
       nr_cadru: 16,
       activat: false,
@@ -949,7 +981,7 @@ var cadre = [
       pozitieIntrareX: 250,
       pozitieIntrareY: 250,
       entries:[
-        {nr_cadru: 2, x:250, y:30},
+        {},
       ],
       textPrim:
       "You talk to the sailor. The sailor looks at the 3 drawings he got \n\
@@ -987,5 +1019,5 @@ let image_strings = [
     "./img/east_city.jpg",//13
     "./img/port.png",//14
     "./img/map.jpg",//15
-    "./img/end_of_the_chapter.jpg",//16
+    "./img/theend.jpg",//16
 ];
