@@ -90,3 +90,7 @@ th, td {
   border: 1px solid black;
   padding: .25em;
 }
+
+table#minimized-table {
+  width: 75%;
+}
