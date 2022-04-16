@@ -62,6 +62,18 @@ var lives = 3;
 
 var cadru_curent = 0;
 
+let capitolSelectat = 1;
+
+/*
+if(capitolSelectat == 1){
+  image_strings = image_strings_ch1;
+  //console.log("Capitolul 1 selectat.");
+}
+else if(capitolSelectat == 2) {
+  image_strings = image_strings_ch2;
+  //console.log("Capitolul 2 selectat.");
+}*/
+
 let imaginiCadru = [];
 for (let i=0; i<image_strings.length; i++){
     imaginiCadru[i] = new Image();
@@ -70,6 +82,12 @@ for (let i=0; i<image_strings.length; i++){
 
 var buton = document.getElementById("resetButton");
 buton.addEventListener("click", resetare);
+
+var butonChapter1 = document.getElementById("ch1Button");
+butonChapter1.addEventListener("click", schimbareCapitol1);
+
+var butonChapter2 = document.getElementById("ch2Button");
+butonChapter2.addEventListener("click", schimbareCapitol2);
 
 //var textBox = document.getElementById("text-box");
 var textBox = document.getElementsByClassName("text-box")[0];
@@ -108,7 +126,31 @@ let actionWidth = 200;
 
 function resetare(){
     localStorage.clear();
+    cadre = cadre_ch1;
+    capitolSelectat = 1;
+    salvareStare();
     location.reload();
+}
+
+function schimbareCapitol1(){
+    console.log("Schimbare capitolul 1");
+    localStorage.clear();
+    cadre = cadre_ch1;
+    capitolSelectat = 1;
+    console.log(capitolSelectat);
+    salvareStare();
+    location.reload();
+}
+
+function schimbareCapitol2(){
+    console.log("Schimbare capitolul 2");
+    localStorage.clear();
+    cadre = cadre_ch2;
+    capitolSelectat = 2;
+    console.log(capitolSelectat);
+    salvareStare();
+    location.reload();
+
 }
 
 function initializare() {
@@ -117,6 +159,23 @@ function initializare() {
     setareStare();
 
 
+    if(capitolSelectat == 1){
+      image_strings = image_strings_ch1;
+      //console.log("Capitolul 1 selectat.");
+    }
+    else if(capitolSelectat == 2) {
+      image_strings = image_strings_ch2;
+      //console.log("Capitolul 2 selectat.");
+    }
+
+    imaginiCadru = [];
+    for (let i=0; i<image_strings.length; i++){
+        imaginiCadru[i] = new Image();
+        imaginiCadru[i].src = image_strings[i];
+    }
+
+
+    //console.log("capitol selectat: " + capitolSelectat);
     for (let i=0; i<imaginiCadru.length; i++){
         imaginiCadru[i].addEventListener("load", loadImage, false);
 
@@ -347,13 +406,17 @@ function drawTextCadru() {
                         actiune["conditie"]["required"] = false;
                         //daca se dezactiveaza conditia incarca itemurile asociate cu
                         //conditia in inventory player
-                        if(actiune["conditie"]["itemsReturned"].length > 0)
+                        if(actiune["conditie"]["itemsReturned"].length > 0){
+                            //console.log(actiune["conditie"]["itemsReturned"]);
+
                             for (let item of actiune["conditie"]["itemsReturned"]){
+                                //actiune["conditie"]["itemsReturned"].pop(item);
                                 npcs["player"].inventory.push(item);
-                                actiune["conditie"]["itemsReturned"].pop(item);
+
                                 //console.log(item);
                             }
-
+                            actiune["conditie"]["itemsReturned"] = [];
+                        }
                         //schimbare cadru daca exista in conditie
                         let cadruReturnat = actiune["conditie"]["cadruReturnat"];
                         if(typeof cadruReturnat != "undefined"){
@@ -572,8 +635,8 @@ function mouseDownHandler(e) {
 function mouseMoveHandler(e) {
     let mouseX = e.clientX - canvas.offsetLeft;
     let mouseY = e.clientY - canvas.offsetTop;
-    console.log("X:" + mouseX);
-    console.log("Y:" + mouseY);
+    //console.log("X:" + mouseX);
+    //console.log("Y:" + mouseY);
 
     var xActiuni = textActiuniX;
     var yActiuni = textActiuniY;
@@ -606,6 +669,7 @@ function salvareCadru() {
 function salvareStare() {
   //console.log("se salveaza starea: ");
   localStorage.setItem('stare', JSON.stringify(cadre));
+  localStorage.setItem('capitolSelectat', capitolSelectat);
 }
 
 function salvareNpcs() {
@@ -629,6 +693,7 @@ function setareStare() {
     //console.log("setare NrArie initiala " + nr_arie);
   } else {
     cadre = JSON.parse(localStorage.getItem('stare'));
+    capitolSelectat = parseInt(localStorage.getItem('capitolSelectat'));
     //console.log("stare incarcata");
   }
 }

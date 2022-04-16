@@ -1,4 +1,4 @@
-var cadre = [
+var cadre_ch2 = [
     //starting_place
     {
       "nume_cadru": "starting_place",
@@ -213,7 +213,11 @@ var cadre = [
             "active" : true,
             "numarClicks" : 0,
             "textSecund" :
-              "Text secund la actiune.",
+              "You get closer to the mural. The carvings seem to depict young \
+              people playing different sports on the beach. Some of them are \
+              swimming, some others are playing various other games. There are a \
+              couple of seagulls flying above in the air. Several fish schools \
+              swim in the sea, and a group of dolphins are having fun.",
         },
         {
           nume:"drive car",
@@ -237,7 +241,7 @@ var cadre = [
             "active" : true,
             "numarClicks" : 0,
             "textSecund" :
-              "Text secund la actiune.",
+              "Text secund la actiune",
         },
       ],
       items: [],
@@ -388,7 +392,7 @@ var cadre = [
           "active" : true,
           "numarClicks" : 0,
           "textSecund" :
-            "Text secund la actiune.",
+            "You already have one.",
         },
       ],
       items: [],
@@ -710,7 +714,7 @@ var cadre = [
           "active" : true,
           "numarClicks" : 0,
           "textSecund" :
-            "Text secund la actiune.",
+            "The mermaids continue to look confused and start laughing.",
         },
         {
           nume:"give seashell",
@@ -1000,57 +1004,4 @@ var cadre = [
       npcs: [],
     },
 
-];
-
-
-let image_strings = [
-    "./img/starting_place.png", //0
-    "./img/library.png",//1
-    "./img/house.png",//2
-    "./img/bridge_end.png",//3
-    "./img/alley_split.jpg",//4
-    "./img/summer_games.png",//5
-    "./img/sunny_beach.jpg",//6
-    "./img/dam.jpg",//7
-    "./img/lighthouse.png",//8
-    "./img/drive_stop.jpg",//9
-    "./img/trees.png",//10
-    "./img/palm_beach.png",//11
-    "./img/city_intersection.jpg",//12
-    "./img/east_city.jpg",//13
-    "./img/port.png",//14
-    "./img/map.jpg",//15
-    "./img/theend.jpg",//16
-];
-
-let image_strings_ch1 = [
-    "./img/ch1/central.png", //0
-    "./img/ch1/attic.png",//1
-    "./img/ch1/riverside.png",//2
-    "./img/ch1/princess.png",//3
-    "./img/ch1/cave.png",//4
-    "./img/ch1/tree.png",//5
-    "./img/ch1/castle.png",//6
-    "./img/ch1/theend.png",//7
-
-];
-
-let image_strings_ch2 = [
-    "./img/starting_place.png", //0
-    "./img/library.png",//1
-    "./img/house.png",//2
-    "./img/bridge_end.png",//3
-    "./img/alley_split.jpg",//4
-    "./img/summer_games.png",//5
-    "./img/sunny_beach.jpg",//6
-    "./img/dam.jpg",//7
-    "./img/lighthouse.png",//8
-    "./img/drive_stop.jpg",//9
-    "./img/trees.png",//10
-    "./img/palm_beach.png",//11
-    "./img/city_intersection.jpg",//12
-    "./img/east_city.jpg",//13
-    "./img/port.png",//14
-    "./img/map.jpg",//15
-    "./img/theend.jpg",//16
 ];

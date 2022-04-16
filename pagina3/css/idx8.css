@@ -93,4 +93,5 @@ th, td {
 
 table#minimized-table {
   width: 75%;
+  text-align: center;
 }
