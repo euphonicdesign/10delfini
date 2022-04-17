@@ -316,7 +316,10 @@ var cadre_ch1 = [
             "You attack the dragon\
                   in a valiant attempt to defeat him. The dragon is much more\
                   powerful than you, and starts throwing balls of fire.\
-                  Fortunately, you are protected by your shield, and he cannot hurt you.",
+                  Fortunately, you are protected by your shield, and he cannot hurt you.\
+                  After 15 minutes, the dragon flies away \
+                  and you start searching through the rest of the cave. In one of the corners, \
+                  you find some wood and a bottle full of water.",
             },
           text:
             "You get closer to the princess and talk to her.",

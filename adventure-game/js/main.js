@@ -93,6 +93,8 @@ butonChapter2.addEventListener("click", schimbareCapitol2);
 var textBox = document.getElementsByClassName("text-box")[0];
 //console.log(textBox);
 
+var title = document.getElementById("title");
+
 let desenareTextActiune = false;
 let actiuneSelectata = "";
 let actiuneItems = [];
@@ -162,10 +164,12 @@ function initializare() {
     if(capitolSelectat == 1){
       image_strings = image_strings_ch1;
       //console.log("Capitolul 1 selectat.");
+      title.textContent = "The Story - Chapter 1"
     }
     else if(capitolSelectat == 2) {
       image_strings = image_strings_ch2;
       //console.log("Capitolul 2 selectat.");
+      title.textContent = "The Story - Chapter 2"
     }
 
     imaginiCadru = [];
@@ -553,7 +557,7 @@ function collisionDetection() {
 
                 //unde apare cursorul pe ecran dupa ce s-a schimbat cadrul
                 if(intrare_scena){
-                    console.log("intrare scena");
+                    //console.log("intrare scena");
                     paddleX = cadre[cadru_curent].pozitieIntrareX;
                     paddleY = cadre[cadru_curent].pozitieIntrareY;
                     intrare_scena = false;
