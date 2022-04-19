@@ -95,3 +95,7 @@ table#minimized-table {
   width: 75%;
   text-align: center;
 }
+
+tr.highlighted {
+  background-color: lightgrey;
+}
