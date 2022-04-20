@@ -135,9 +135,9 @@ var cadre_ch2 = [
               "",
           },
           text:
-            "You go to the desk and turn on the computer. While the computer boots \n\
-            up, you notice a pair of keys next to the monitor. You start playing \n\
-            some video games. One of them contains a colourful map that you \n\
+            "You go to the desk and turn on the computer. While the computer boots \
+            up, you notice a pair of keys next to the monitor. You start playing \
+            some video games. One of them contains a colourful map that you \
             can visualize in full-screen mode.",
           items: ["keys",],
           "active" : true,

@@ -89,6 +89,9 @@ butonChapter1.addEventListener("click", schimbareCapitol1);
 var butonChapter2 = document.getElementById("ch2Button");
 butonChapter2.addEventListener("click", schimbareCapitol2);
 
+var butonChapter3 = document.getElementById("ch3Button");
+butonChapter3.addEventListener("click", schimbareCapitol3);
+
 //var textBox = document.getElementById("text-box");
 var textBox = document.getElementsByClassName("text-box")[0];
 //console.log(textBox);
@@ -152,7 +155,16 @@ function schimbareCapitol2(){
     console.log(capitolSelectat);
     salvareStare();
     location.reload();
+}
 
+function schimbareCapitol3(){
+    console.log("Schimbare capitolul 3");
+    localStorage.clear();
+    cadre = cadre_ch3;
+    capitolSelectat = 3;
+    console.log(capitolSelectat);
+    salvareStare();
+    location.reload();
 }
 
 function initializare() {
@@ -161,6 +173,7 @@ function initializare() {
     setareStare();
 
 
+    /*
     if(capitolSelectat == 1){
       image_strings = image_strings_ch1;
       //console.log("Capitolul 1 selectat.");
@@ -170,7 +183,10 @@ function initializare() {
       image_strings = image_strings_ch2;
       //console.log("Capitolul 2 selectat.");
       title.textContent = "The Story - Chapter 2"
-    }
+    }*/
+    image_strings = image_strings_ch[capitolSelectat-1];
+    title.textContent = `The Story - Chapter ${capitolSelectat}`;
+
 
     imaginiCadru = [];
     for (let i=0; i<image_strings.length; i++){

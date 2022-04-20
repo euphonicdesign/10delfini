@@ -1023,7 +1023,9 @@ let image_strings = [
     "./img/theend.jpg",//16
 ];
 
-let image_strings_ch1 = [
+let image_strings_ch =[
+  //Chapter 1
+  [
     "./img/ch1/central.png", //0
     "./img/ch1/attic.png",//1
     "./img/ch1/riverside.png",//2
@@ -1032,10 +1034,9 @@ let image_strings_ch1 = [
     "./img/ch1/tree.png",//5
     "./img/ch1/castle.png",//6
     "./img/ch1/theend.png",//7
-
-];
-
-let image_strings_ch2 = [
+  ],
+  //Chapter 2
+  [
     "./img/starting_place.png", //0
     "./img/library.png",//1
     "./img/house.png",//2
@@ -1053,4 +1054,24 @@ let image_strings_ch2 = [
     "./img/port.png",//14
     "./img/map.jpg",//15
     "./img/theend.jpg",//16
+  ],
+  //Chapter 3
+  [
+    "./img/ch3/port.jpg", //0
+    "./img/ch3/city intersection.jpg",//1
+    "./img/ch3/east city.jpg",//2
+    "./img/ch3/forest.jpg",//3
+    "./img/ch3/camping1.jpg",//4
+    "./img/ch3/web.jpg",//5
+    "./img/ch3/fireplace1.jpg",//6
+    "./img/ch3/forest clearing.jpg",//7
+    "./img/ch3/mushrooms.jpg",//8
+    "./img/ch3/peonies.jpg",//9
+    "./img/ch3/squirrel.jpg",//10
+    "./img/ch3/waterfall.jpg",//11
+    "./img/ch3/shrubs.jpg",//12
+    "./img/ch3/lianas.jpg",//13
+    "./img/ch3/train.jpg",//14
+    "./img/ch3/end of the chapter.jpg",//15
+  ],
 ];
