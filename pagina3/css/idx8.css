@@ -27,7 +27,7 @@ p.indented {
   color: #333;
 }
 
-p, ul, ol, table {
+p, ul, ol, table, form {
   font-family: Verdana, Arial, sans-serif;
   text-align: justify;
   line-height: 1.3em;
