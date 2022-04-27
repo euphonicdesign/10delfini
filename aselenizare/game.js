@@ -255,10 +255,10 @@ function collisionDetectionTinte(){
 
 function checkWinningConditions(){
   if(puncte == nrTinte){
-    location.reload(true);
+    document.location.reload(true);
   }
   if(hits > 3){
-    location.reload(true);
+    document.location.reload(true);
   }
 }
 
