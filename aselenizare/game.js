@@ -93,14 +93,21 @@ function updateSpaceship(){
     }
     spaceship.velocity.y -= gravity;
 
-    if(spaceship.position.y > canvas.height){
-        spaceship.position.y = canvas.height;
+    if(spaceship.position.y + spaceship.height/2 > canvas.height){
+        spaceship.position.y = canvas.height - spaceship.height/2;
         spaceship.velocity.y = 0;
         spaceship.velocity.x = 0;
     }
-    if(spaceship.position.x < 0){
+    else if(spaceship.position.x < 0){
         spaceship.position.x = 0;
         spaceship.velocity.x = 0;
+    }
+    else if(spaceship.position.x > canvas.width){
+        spaceship.position.x = canvas.width;
+        spaceship.velocity.x = 0;
+    }
+    else if(spaceship.position.y < 0){
+        spaceship.position.y = 0;
     }
 }
 
