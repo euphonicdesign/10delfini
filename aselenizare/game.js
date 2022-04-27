@@ -3,36 +3,53 @@ var ctx = canvas.getContext("2d");
 canvas.width = 800;
 canvas.height = 500;
 
-// ctx.clearRect(0, 0, canvas.clientWidth, canvas.height);
+let nrTinte = 10 + Math.floor(Math.random() * 6);
+let nrObstacole = 20 + Math.floor(Math.random() * 10);
+let puncte = 0;
+let hits = 0;
+let gravity = 0.003;
+let stars = [];
 
-// ctx.beginPath();
-// ctx.rect(0, 0, 200, 50);
-// ctx.fillStyle = "green";
-// ctx.fill();
-// ctx.strokeStyle = "black";
-// ctx.stroke();
+for (let i=0; i < 500; i++){
+  stars[i] = {
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    radius: Math.sqrt(Math.random() * 2),
+    alpha: 1.0,
+    decreasing: true,
+    dRatio: Math.random()*0.05
+  }
+}
 
+let obstacole = [];
+for (let i=0; i<nrObstacole; i++){
+  obstacole[i] = {
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    length: 40,
+    height: 20,
+    radius: 20,
+    hit: false
+  }
+}
 
-// ctx.beginPath();
-// ctx.arc(100, 100, 20, 0, 2*Math.PI)
-// ctx.fillStyle = "black";
-// ctx.fill();
-
-
-// ctx.beginPath();
-// ctx.moveTo(100, 100);
-// ctx.lineTo(200, 100);
-// ctx.lineTo(100, 200);
-// ctx.lineTo(100, 100);
-
-// ctx.fillStyle = "blue";
-// ctx.fill();
-//
+let tinte = [];
+for (let i=0; i<nrTinte; i++){
+  tinte[i] = {
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    length: 40,
+    height: 20,
+    radius: 20,
+    hit: false
+  }
+}
 
 let spaceship = {
     color: "green",
-    width: 20,
+    width: 18,
     height: 30,
+    radius: 3,
     position: {
         x: 200,
         y: 200
@@ -48,6 +65,12 @@ let spaceship = {
     rotatingRight: false,
     crashed: false
 }
+
+const bubblePop1 = document.createElement("audio");
+bubblePop1.src = "Plop.ogg";
+
+const bubblePop2 = document.createElement("audio");
+bubblePop2.src = "bubbles-single2.wav";
 
 function drawSpaceship() {
     ctx.save();
@@ -70,11 +93,15 @@ function drawSpaceship() {
         ctx.fillStyle = "orange";
         ctx.fill();
     }
+
     ctx.restore();
-
+    //centru
+    ctx.beginPath();
+    ctx.arc(spaceship.position.x, spaceship.position.y, spaceship.radius, 0, 2*Math.PI);
+    ctx.closePath();
+    ctx.fillStyle = "black";
+    ctx.fill();
 }
-
-let gravity = 0.001;
 
 function updateSpaceship(){
     spaceship.position.x += spaceship.velocity.x;
@@ -111,11 +138,128 @@ function updateSpaceship(){
     }
 }
 
+function drawStars() {
+  ctx.save();
+  ctx.fillStyle = "#111"
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  for (let i=0; i < stars.length; i++){
+    let star = stars[i];
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.radius, 0, 2*Math.PI);
+    ctx.closePath();
+    ctx.fillStyle = "#bbb";
+    ctx.fill();
+  }
+  ctx.restore();
+}
+
+function drawObstacole(){
+  for (let obstacol of obstacole) {
+    ctx.beginPath();
+    ctx.arc(obstacol.x, obstacol.y, obstacol.radius, 0, 2*Math.PI);
+    ctx.closePath();
+    ctx.fillStyle = "orange";
+    ctx.fill();
+  }
+}
+
+function drawTinte(){
+  for (let tinta of tinte) {
+    if(!tinta.hit){
+      ctx.beginPath();
+      ctx.arc(tinta.x, tinta.y, tinta.radius, 0, 2*Math.PI);
+      ctx.closePath();
+      ctx.fillStyle = "white";
+      ctx.fill();
+    }
+
+    // ctx.beginPath();
+    // ctx.rect(obstacol.x - obstacol.length/2, obstacol.y - obstacol.height/2, obstacol.length, obstacol.height);
+    // ctx.fillStyle = "orange";
+    // ctx.fill();
+
+    // ctx.strokeStyle = "black";
+    // ctx.stroke();
+  }
+}
+
+function drawTelemetry (){
+  ctx.font = "italic 16px Helvetica, system-ui, Arial, sans-serif";
+  ctx.textAlign = "start";
+  ctx.fillStyle = "#3399ff";
+
+  let velocityY = Math.floor(spaceship.velocity.y*10)/10;
+  if (Math.abs(velocityY) <=0.1){
+    velocityY = 0;
+  }
+  ctx.fillText("velocity (y): " + velocityY, 20, 30);
+  ctx.fillText("hits: " + hits, 20, 46);
+  ctx.fillText("points: " + puncte, 20, 62);
+}
+
 function draw(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     updateSpaceship();
+    collisionDetectionObstacole();
+    collisionDetectionTinte();
+    checkWinningConditions();
+    drawStars();
+    drawTinte();
+    drawObstacole();
+    drawTelemetry();
     drawSpaceship();
     requestAnimationFrame(draw);
+}
+
+function collisionDetectionObstacole(){
+  for (let obstacol of obstacole){
+    if(!obstacol.hit){
+      let dx = spaceship.position.x - obstacol.x;
+      let dy = spaceship.position.y - obstacol.y;
+
+      let distance = Math.sqrt(dx**2 + dy**2);
+      if(distance <= obstacol.radius) {
+        hits++;
+        obstacol.hit = true;
+        bubblePop1.play();
+      }
+    }
+  }
+
+  for (let obstacol of obstacole){
+      let dx = spaceship.position.x - obstacol.x;
+      let dy = spaceship.position.y - obstacol.y;
+
+      let distance = Math.sqrt(dx**2 + dy**2);
+      if(distance > obstacol.radius) {
+        obstacol.hit = false;
+      }
+  }
+}
+
+function collisionDetectionTinte(){
+  for (let tinta of tinte){
+    if(!tinta.hit){
+      let dx = spaceship.position.x - tinta.x;
+      let dy = spaceship.position.y - tinta.y;
+
+      let distance = Math.sqrt(dx**2 + dy**2);
+      if(distance <= tinta.radius) {
+        puncte++;
+        tinta.hit = true;
+        bubblePop2.play();
+      }
+    }
+  }
+}
+
+function checkWinningConditions(){
+  if(puncte == nrTinte){
+    location.reload();
+  }
+  if(hits > 3){
+    location.reload();
+  }
 }
 
 function keyLetGo(event)
@@ -181,3 +325,29 @@ draw();
 // }
 
 // draw();
+
+// ctx.clearRect(0, 0, canvas.clientWidth, canvas.height);
+
+// ctx.beginPath();
+// ctx.rect(0, 0, 200, 50);
+// ctx.fillStyle = "green";
+// ctx.fill();
+// ctx.strokeStyle = "black";
+// ctx.stroke();
+
+
+// ctx.beginPath();
+// ctx.arc(100, 100, 20, 0, 2*Math.PI)
+// ctx.fillStyle = "black";
+// ctx.fill();
+
+
+// ctx.beginPath();
+// ctx.moveTo(100, 100);
+// ctx.lineTo(200, 100);
+// ctx.lineTo(100, 200);
+// ctx.lineTo(100, 100);
+
+// ctx.fillStyle = "blue";
+// ctx.fill();
+//
