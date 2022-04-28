@@ -7,7 +7,7 @@ let nrTinte = 10 + Math.floor(Math.random() * 6);
 let nrObstacole = 20 + Math.floor(Math.random() * 10);
 let puncte = 0;
 let hits = 0;
-let gravity = 0.003;
+let gravity = 0.003 + Math.random()/300;
 let stars = [];
 
 for (let i=0; i < 500; i++){
@@ -66,6 +66,31 @@ let spaceship = {
     crashed: false
 }
 
+//Mouse interactivity
+let canvasPosition = canvas.getBoundingClientRect();
+const mouse = {
+    x: canvas.width/2,
+    y: canvas.height/2,
+    click: false
+}
+canvas.addEventListener('mousedown',function(event){
+    mouse.click = true;
+    mouse.x = event.x - canvasPosition.left;
+    mouse.y = event.y - canvasPosition.top;
+
+    const dx = spaceship.position.x - mouse.x;
+    const dy = spaceship.position.y - mouse.y;
+    let theta = Math.atan2(dy,dx);
+    spaceship.angle = theta + 3*Math.PI/2;
+
+    spaceship.engineOn = true;
+});
+
+canvas.addEventListener("mouseup",function(){
+    mouse.click = false;
+    spaceship.engineOn = false;
+});
+
 const bubblePop1 = document.createElement("audio");
 bubblePop1.src = "Plop.ogg";
 
@@ -73,6 +98,17 @@ const bubblePop2 = document.createElement("audio");
 bubblePop2.src = "bubbles-single2.wav";
 
 function drawSpaceship() {
+
+    if (mouse.click) {
+        ctx.lineWidth = 0.2;
+        ctx.strokeStyle = "aqua";
+        ctx.beginPath();
+        ctx.moveTo(spaceship.position.x, spaceship.position.y);
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.stroke();
+        ctx.closePath();
+    }
+
     ctx.save();
     ctx.beginPath();
     ctx.translate(spaceship.position.x, spaceship.position.y);
@@ -195,6 +231,7 @@ function drawTelemetry (){
   ctx.fillText("velocity (y): " + velocityY, 20, 30);
   ctx.fillText("hits: " + hits, 20, 46);
   ctx.fillText("points: " + puncte, 20, 62);
+  ctx.fillText("gravity: " + Math.floor(gravity*1000)/1000, 20, 78);
 }
 
 function draw(){
