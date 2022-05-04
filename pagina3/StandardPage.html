@@ -158,12 +158,14 @@
       <textarea name="message" rows="6" cols="40"></textarea>
       <br>
       Make a selection:
-      <input type="radio" name="selection" value="Option 1" checked="checked">Option 1
-      <input type="radio" name="selection" value="Option 2">Option 2
+      <label><input type="radio" name="selection" value="Option 1" checked="checked">Option 1</label>
+      <label><input type="radio" name="selection" value="Option 2">Option 2</label>
       <br>
       Make another selection:
-      <input type="checkbox" name="feedback" value="option 1" checked="checked">Option 1
-      <input type="checkbox" name="feedback" value="option 2">Option 2
+      <input type="checkbox" id="op1" name="feedback" value="option 1" checked="checked">
+      <label for="op1">Option 1</label>
+      <input type="checkbox" id="op2" name="feedback" value="option 2">
+      <label for="op2">Option 2</label>
       <br>
       Make a selection:
       <select name="selectionBox" id="">
