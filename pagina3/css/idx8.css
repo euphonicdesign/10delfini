@@ -99,3 +99,8 @@ table#minimized-table {
 tr.highlighted {
   background-color: lightgrey;
 }
+
+input[type="text"], textarea {
+  font-size: 2em;
+  padding: 3px;
+}

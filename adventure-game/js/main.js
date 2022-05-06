@@ -92,6 +92,9 @@ butonChapter2.addEventListener("click", schimbareCapitol2);
 var butonChapter3 = document.getElementById("ch3Button");
 butonChapter3.addEventListener("click", schimbareCapitol3);
 
+var butonChapter4 = document.getElementById("ch4Button");
+butonChapter4.addEventListener("click", schimbareCapitol4);
+
 //var textBox = document.getElementById("text-box");
 var textBox = document.getElementsByClassName("text-box")[0];
 //console.log(textBox);
@@ -162,6 +165,16 @@ function schimbareCapitol3(){
     localStorage.clear();
     cadre = cadre_ch3;
     capitolSelectat = 3;
+    console.log(capitolSelectat);
+    salvareStare();
+    location.reload();
+}
+
+function schimbareCapitol4(){
+    console.log("Schimbare capitolul 4");
+    localStorage.clear();
+    cadre = cadre_ch4;
+    capitolSelectat = 4;
     console.log(capitolSelectat);
     salvareStare();
     location.reload();

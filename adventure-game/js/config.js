@@ -1074,4 +1074,39 @@ let image_strings_ch =[
     "./img/ch3/train.jpg",//14
     "./img/ch3/end of the chapter.jpg",//15
   ],
+  //Chapter 4
+  [
+    "./img/ch4/watch train.jpg", //0
+    "./img/ch4/train car.jpg",//1
+    "./img/ch4/central train station.jpg",//2
+    "./img/ch4/small park.jpg",//3
+    "./img/ch4/small park side.jpg",//4
+    "./img/ch4/part 1.jpg",//5
+    "./img/ch4/city streets.jpg",//6
+    "./img/ch4/bridge.jpg",//7
+    "./img/ch4/room.jpg",//8
+    "./img/ch4/long alley.jpg",//9
+    "./img/ch4/open space.jpg",//10
+    "./img/ch4/library.jpg",//11
+    "./img/ch4/pub.jpg",//12
+    "./img/ch4/large building.jpg",//13
+    "./img/ch4/basketball court.jpg",//14
+    "./img/ch4/watch window.jpg",//15
+    "./img/ch4/signpost 2.jpg",//16
+    "./img/ch4/spiral stairs.jpg",//17
+    "./img/ch4/university.jpg",//18
+    "./img/ch4/attend.jpg",//19
+    "./img/ch4/watch desk 2.jpg",//20
+    "./img/ch4/central train station.jpg",//21
+    "./img/ch4/part 2.jpg",//22
+    "./img/ch4/library interior.jpg",//23
+    "./img/ch4/map.jpg",//24
+    "./img/ch4/downtown square.jpg",//25
+    "./img/ch4/park.jpg",//26
+    "./img/ch4/dance floor.jpg",//27
+    "./img/ch4/artizanal fountain.jpg",//28
+    "./img/ch4/palm beach.jpg",//29
+    "./img/ch4/watch river.jpg",//30
+    "./img/ch4/dance 2.jpg",//31
+  ],
 ];
