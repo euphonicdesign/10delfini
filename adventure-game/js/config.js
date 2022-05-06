@@ -1108,5 +1108,6 @@ let image_strings_ch =[
     "./img/ch4/palm beach.jpg",//29
     "./img/ch4/watch river.jpg",//30
     "./img/ch4/dance 2.jpg",//31
+    "./img/ch4/theend.jpg",//32
   ],
 ];

@@ -1354,6 +1354,7 @@ var cadre_ch4 = [
           required: true,
           itemsRequired: ["seeds planted", "park photos", "river photos"],
           itemsReturned: [],
+          cadruReturnat: 32,
           textConditieTrue:
             "Not until you activate the train and do the last things you have to do...",
           textConditieFalse:
@@ -1361,7 +1362,7 @@ var cadre_ch4 = [
             You can operate it yourself\
             and choose to go to a couple of locations.\
             After all, you still have to find what you have been\
-            looking for...",
+            looking for... The end of chapter 4. Hope you've enjoyed it! :)",
         },
         text: "",
         items: [],
@@ -1961,6 +1962,26 @@ var cadre_ch4 = [
     entries: [
       //link-uri celelalte cadre - pozitia cercurilor
       { nr_cadru: 27, x: 50, y: 345 },
+    ],
+    textPrim: "",
+    textSecund: "",
+    actiuni: [
+    ],
+    items: [],
+    npcs: [],
+  },
+
+  //theend
+  {
+    nume_cadru: "theend",
+    nrVizite: 1, //cadrul de inceput are intotdeauna 1, restul au 0
+    nr_cadru: 32,
+    activat: false,
+    vizitat: false,
+    pozitieIntrareX: 300, //pozitia jucatorului
+    pozitieIntrareY: 340,
+    entries: [
+      //link-uri celelalte cadre - pozitia cercurilor
     ],
     textPrim: "",
     textSecund: "",
