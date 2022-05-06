@@ -383,7 +383,6 @@ var cadre_ch4 = [
           required: true,
           itemsRequired: ["seeds"],
           itemsReturned: [],
-          cadruReturnat: 11,
           textConditieTrue:
             "You don't have any...",
           textConditieFalse:
