@@ -104,3 +104,8 @@ input[type="text"], textarea {
   font-size: 2em;
   padding: 3px;
 }
+
+/*
+This is a multiline comment. It appears like this because it was meant to
+appear like this. It should make sense.
+*/
