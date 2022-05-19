@@ -114,3 +114,33 @@ div.special {
   width: 20%;
   margin: 0 auto 0 auto;
 }
+
+div#d1 {
+  width: 60%;
+  float: left;
+  border: 1px solid black;
+}
+
+div#d2 {
+  width: 28%;
+  float: right;
+  border: 1px solid black;
+}
+
+#d1, #d2 {
+  padding: 10px;
+}
+
+div#header {
+  width: 100%;
+  /*position: absolute;*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: lightblue;
+}
+
+div#header img {
+  float: left;
+  margin: 1em;
+}
