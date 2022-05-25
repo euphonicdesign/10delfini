@@ -138,9 +138,26 @@ div#header {
   top: 0;
   left: 0;
   color: lightblue;
+  z-index: -1;
 }
 
 div#header img {
   float: left;
   margin: 1em;
+}
+
+div#nav {
+  clear: both;
+  list-style-type: none;
+}
+
+div#nav ul {
+  list-style-type: none;
+}
+
+div#nav ul li a {
+  font-size: 1.1em;
+  font-weight: 900;
+  font-family: Verdana, Arial, sans-serif;
+  text-decoration: none;
 }
