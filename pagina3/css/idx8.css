@@ -149,10 +149,13 @@ div#header img {
 div#nav {
   clear: both;
   list-style-type: none;
+  background-color: #333;
+  display: inline-block;
 }
 
 div#nav ul {
   list-style-type: none;
+  padding-left: 0;
 }
 
 div#nav ul li a {
@@ -160,4 +163,5 @@ div#nav ul li a {
   font-weight: 900;
   font-family: Verdana, Arial, sans-serif;
   text-decoration: none;
+  color: white;
 }
