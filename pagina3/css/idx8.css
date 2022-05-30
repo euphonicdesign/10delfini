@@ -117,6 +117,13 @@ div.special {
   background-repeat: repeat-x;
 }
 
+body {
+  background-image: url("../img/delfini.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed;
+}
+
 div#d1 {
   width: 60%;
   float: left;
