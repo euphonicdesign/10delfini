@@ -198,3 +198,7 @@ li.changeBackground:hover {
 li.changeBackground:active {
   background-color: darkblue;
 }
+
+div.sep {
+  margin-bottom: 8em;
+}
